@@ -20,6 +20,8 @@ rec {
   imports = [
     ./hyprland.nix # Hyprland config
     ./bsh.nix
+    ./tmux.nix
+    ./kitty.nix
   ];
 
   programs.git = {
@@ -31,7 +33,7 @@ rec {
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    kitty
+    cowsay
   ];
 
   home.sessionVariables = {
