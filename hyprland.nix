@@ -230,7 +230,7 @@
     $mainMod = ALT # Sets "Windows" key as main modifier
 
     # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-    bind = $mainMod, Q, exec, $terminal
+    bind = $mainMod, RETURN, exec, $terminal
     bind = $mainMod SHIFT, Q, killactive,
     bind = $mainMod, M, exit,
     bind = $mainMod, E, exec, $fileManager
