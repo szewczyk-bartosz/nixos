@@ -1,12 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  programs.kitty {
+  programs.kitty = {
     enable = true;
-    font = "JetbrainsMono Nerd Font";
     extraConfig = 
     ''
-    confirm_os_window_close -1
+    confirm_os_window_close 0
     '';
   };
 }
