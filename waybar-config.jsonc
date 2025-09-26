@@ -1,0 +1,221 @@
+{
+  "hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			"active": "",//
+			"default": ""
+    },
+    "persistent-workspaces" : {
+      "*": 5
+    }
+  },
+
+	"memory": {
+		"interval": 10,
+		"format": "󰘚 {percentage}%",
+		"format-warning": "󰀧 {percentage}%",
+		"format-critical": "󰀧 {percentage}%",
+    "min-length": 7,
+    "max-length": 7,
+		// "rotate":
+		"states": {
+			"warning": 75,
+			"critical": 90
+		},
+		"min-length": 7,
+		"max-length": 7,
+		"tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB"
+	},
+	"cpu": {
+		"interval": 10,
+		"format": "󰍛 {usage}%",
+		"format-warning": "󰀨 {usage}%",
+		"format-critical": "󰀨 {usage}%",
+		"min-length": 7,
+		"max-length": 7,
+		// "rotate":
+		"states": {
+			"warning": 75,
+			"critical": 90
+		},
+		// "on-click":
+		// "on-click-middle":
+		// "on-click-right":
+		// "on-scroll-up":
+		// "on-scroll-down":
+		// "smooth-scrolling-threshold":
+		"tooltip": false
+	},
+
+
+	"battery": {
+		// "bat":
+		// "adapter":
+		// "design-capacity":
+		// "full-at":
+		// "interval":
+		"states": {
+			"warning": 20,
+			"critical": 10
+		},
+		"format": "{icon} {capacity}%",
+		"format-time": "{H} hr {M} min",
+		"format-icons": [
+			"󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+		],
+		"format-charging": "󰉁 {capacity}%",
+		"min-length": 7,
+		"max-length": 7,
+		"tooltip-format": "Discharging: {time}",
+		"tooltip-format-charging": "Charging: {time}",
+		"events": {
+			"on-discharging-warning": "notify-send 'Low Battery' '{capacity}% battery remaining'",
+			"on-discharging-critical": "notify-send 'Low Battery' '{capacity}% battery remaining' -u critical",
+			"on-charging-100": "notify-send 'Battery full' 'Battery is at {capacity}%'"
+		}
+	},
+	"clock#time": {
+		// "interval":
+		"format": "{:%H:%M}",
+		// "timezone":
+		// "timezones":
+		// "locale":
+		"min-length": 5,
+		"max-length": 5,
+		// "rotate": 0,
+		// "on-click":
+		// "on-click-middle":
+		// "on-click-right":
+		// "on-scroll-up":
+		// "on-scroll-down":
+		// "smooth-scrolling-threshold":
+		// "tooltip":
+		"tooltip-format": "Standard Time: {:%I:%M %p}"
+	},
+
+	"clock#date": {
+		// "interval":
+		"format": "󰸗 {:%m-%d}",
+		// "timezone":
+		// "timezones":
+		// "locale":
+		"min-length": 7,
+		"max-length": 7,
+		// "rotate":
+		// "on-click":
+		// "on-click-middle":
+		// "on-click-right":
+		// "on-scroll-up":
+		// "on-scroll-down":
+		// "smooth-scrolling-threshold":
+		// "tooltip":
+		"tooltip-format": "{calendar}",
+		"calendar": {
+			"mode": "month",
+			"mode-mon-col": 6,
+			// "week-pos":
+			// "on-scroll":
+			"format": {
+				"months": "<span alpha='100%'><b>{}</b></span>",
+				"days": "<span alpha='90%'>{}</span>",
+				// "weeks":
+				"weekdays": "<span alpha='80%'><i>{}</i></span>",
+				"today": "<span alpha='100%'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-click": "mode"
+			// "on-click-middle":
+			// "on-click-right":
+			// "on-scroll-up":
+			// "on-scroll-down":
+		}
+	},
+
+  "custom/distro": {
+    "format": "",
+    "tooltip": false,
+		"min-length": 1,
+		"max-length": 1
+  },
+  
+	"network": {
+		// "interface":
+		"interval": 10,
+		// "family":
+		"format": "󰤨",
+		"format-ethernet": "󰈀",
+		"format-wifi": "{icon}",
+		// "format-linked":
+		"format-disconnected": "󰤯",
+		"format-disabled": "󰤮",
+		// "format-alt":
+		"format-icons": [
+			"󰤟", "󰤢", "󰤥", "󰤨"
+		],
+		"min-length": 3,
+		"max-length": 3
+  },
+
+	"wireplumber#output": {
+		"format": "{icon} {volume}%",
+		"format-muted": "󰝟 {volume}%",
+		// "format-source":
+		// "format-source-muted":
+		"format-icons": [
+			"󰕿", "󰖀", "󰕾"
+		],
+		// "rotate":
+		// "states":
+		"min-length": 7,
+		"max-length": 7,
+		// "scroll-step":
+		"tooltip-format": "Device: {node_name}",
+		// "max-volume":
+	},
+	/*------------
+		layout
+	------------*/
+
+	"modules-left": [
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+    "memory",
+    "wireplumber#output",
+    "custom/distro",
+    "cpu",
+    "clock#date"
+	],
+	"modules-right": [
+    "network",
+		"battery",
+		"clock#time"
+	],
+
+	/*-------------
+		options
+	-------------*/
+
+	// "layer": "top",
+	// "output":
+	"position": "bottom",
+	// "height": 0,
+	// "width": 0,
+	// "margin": 0,
+	// "margin-top":
+	// "margin-left":
+	// "margin-bottom":
+	// "margin-right":
+	"spacing": 0,
+	// "name":
+	"mode": "dock",
+	// "start_hidden":
+	// "modifier-reset":
+	// "exclusive":
+	// "fixed-center":
+	// "passthrough":
+	// "ipc":
+	// "id":
+	"reload_style_on_change": true
+}
