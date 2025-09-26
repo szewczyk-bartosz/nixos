@@ -88,6 +88,8 @@ rec {
   home.file.".config/waybar/config.jsonc".source = ./waybar-config.jsonc;
   home.file.".config/waybar/style.css".source = ./waybar-style.css;
 
+  home.file.".wal-cache".source = ./wal-cache;
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
