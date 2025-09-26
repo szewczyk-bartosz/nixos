@@ -89,6 +89,7 @@ rec {
   home.file.".config/waybar/style.css".source = ./waybar-style.css;
 
   home.file.".wal-cache".source = ./wal-cache;
+  home.file."wallpapers/arasaka.png".source = ./wallpapers/arasaka.png;
 
 
   # Let Home Manager install and manage itself.
