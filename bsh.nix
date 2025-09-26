@@ -8,6 +8,13 @@
       "switch-home" = "home-manager switch --flake ~/.dotfiles/";
       "switch-full" = "sudo nixos-rebuild switch --flake ~/.dotfiles && home-manager switch --flake ~/.dotfiles/";
     };
+
+    bashrcExtra = 
+    ''
+    if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+      exec tmux
+    fi
+    '';
   };
 
 }
