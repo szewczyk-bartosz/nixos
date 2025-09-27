@@ -314,6 +314,7 @@
 
     # Fix some dragging issues with XWayland
     windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+    layerrule = noanim, ^(wofi)$
 
     exec-once = waybar
     exec-once = swaybg -i /home/cheryllamb/wallpapers/arasaka.png
