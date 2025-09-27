@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, host, ... }:
 
-rec {
+let
+  bshConfig = import (
+    ./bsh + "/${host}.nix"
+  );
+in rec {
   # = = = = = = = = = = = = = = = = = = = = =
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -19,10 +23,11 @@ rec {
   
   imports = [
     ./hyprland.nix # Hyprland config
-    ./bsh.nix
+    bshConfig
     ./tmux.nix
     ./kitty.nix
     ./wofi.nix
+    ./neovim.nix
   ];
 
   programs.git = {
@@ -34,6 +39,8 @@ rec {
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    lunarvim
+    lazygit
     cowsay
   ];
 

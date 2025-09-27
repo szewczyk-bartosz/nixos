@@ -21,12 +21,22 @@
         modules = [ ./k1v1-config.nix ];
       };
     };
-    homeConfigurations.cheryllamb = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [
-        ./home.nix
-      ];
-      
+    homeConfigurations = {
+      "cheryllamb@k1v1" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { host = "k1v1"; };
+        modules = [
+          ./home.nix
+        ];
+      };
+
+      "cheryllamb@m1k1" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { host = "m1k1"; };
+        modules = [
+          ./home.nix
+        ];
+      };
     };
   };
 }
