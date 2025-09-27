@@ -20,6 +20,11 @@
         inherit system;
         modules = [ ./k1v1-config.nix ];
       };
+    nixosConfigurations = {
+      m1k1 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [ ./m1k1-config.nix ];
+      };
     };
     homeConfigurations = {
       "cheryllamb@k1v1" = home-manager.lib.homeManagerConfiguration {
