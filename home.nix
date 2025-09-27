@@ -22,6 +22,7 @@ rec {
     ./bsh.nix
     ./tmux.nix
     ./kitty.nix
+    ./wofi.nix
   ];
 
   programs.git = {
