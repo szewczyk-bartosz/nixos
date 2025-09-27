@@ -15,33 +15,34 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-    nixosConfigurations = {
-      k1v1 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [ ./k1v1-config.nix ];
+      nixosConfigurations = {
+        k1v1 = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./k1v1-config.nix ];
+        };
+      nixosConfigurations = {
+        m1k1 = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./m1k1-config.nix ];
+        };
       };
-    nixosConfigurations = {
-      m1k1 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [ ./m1k1-config.nix ];
-      };
-    };
-    homeConfigurations = {
-      "cheryllamb@k1v1" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { host = "k1v1"; };
-        modules = [
-          ./home.nix
-        ];
-      };
+      homeConfigurations = {
+        "cheryllamb@k1v1" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { host = "k1v1"; };
+          modules = [
+            ./home.nix
+          ];
+        };
 
-      "cheryllamb@m1k1" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { host = "m1k1"; };
-        modules = [
-          ./home.nix
-        ];
+        "cheryllamb@m1k1" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { host = "m1k1"; };
+          modules = [
+            ./home.nix
+          ];
+        };
       };
     };
-  };
+  }
 }

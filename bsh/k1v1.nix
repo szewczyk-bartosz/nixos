@@ -6,7 +6,7 @@
     shellAliases = {
       "switch-system" = "sudo nixos-rebuild switch --flake ~/.dotfiles/#cheryllamb@k1v1";
       "switch-home" = "home-manager switch --flake ~/.dotfiles/#cheryllamb@k1v1";
-      "switch-full" = "sudo nixos-rebuild switch --flake ~/.dotfiles/#cheryllamb@k1v1 && home-manager switch --flake ~/.dotfiles/";
+      "switch-full" = "sudo nixos-rebuild switch --flake ~/.dotfiles/ && home-manager switch --flake ~/.dotfiles/#cheryllamb@k1v1";
     };
 
     bashrcExtra = 
