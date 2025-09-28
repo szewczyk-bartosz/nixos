@@ -36,6 +36,9 @@ in rec {
     enable = true;
     userName = "szewczyk-bartosz";
     userEmail = "cheryllamb123098@protonmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
   };
 
   # The home.packages option allows you to install Nix packages into your

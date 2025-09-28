@@ -87,7 +87,7 @@
     xxkb
     alacritty
     libnotify
-    tmux
+    # tmux disabled pending resolving the tmux issue
     pywal
     swaybg
     nwg-look
