@@ -47,6 +47,9 @@ in rec {
     python312
     jdk24
     cowsay
+    gimp
+    grim
+    slurp
   ];
 
   home.sessionVariables = {

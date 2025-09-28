@@ -319,6 +319,11 @@
     exec-once = waybar
     exec-once = swaybg -i /home/cheryllamb/wallpapers/arasaka.png
 
+    unbind = $mainMod SHIFT, 9
+    unbind = $mainMod SHIFT, 0
+    unbind = $mainMod SHIFT, (
+    unbind = $mainMod SHIFT, )
+
     '';
 
 
