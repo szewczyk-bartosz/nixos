@@ -29,6 +29,7 @@ in rec {
     ./wofi.nix
     ./waybar.nix
     ./vim.nix
+    ./helix.nix
   ];
 
   programs.git = {
@@ -40,6 +41,7 @@ in rec {
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    qutebrowser
     cowsay
   ];
 
