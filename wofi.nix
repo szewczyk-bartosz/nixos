@@ -26,7 +26,7 @@
       }
 
       #entry:selected {
-        background-color: @arasakaDarker;
+        background-color: @arasakaDarkerer;
       }
 
       #input:focus,

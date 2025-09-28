@@ -27,7 +27,6 @@ in rec {
     ./tmux.nix
     ./kitty.nix
     ./wofi.nix
-    ./neovim.nix
     ./waybar.nix
   ];
 
