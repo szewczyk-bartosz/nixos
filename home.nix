@@ -28,6 +28,7 @@ in rec {
     ./kitty.nix
     ./wofi.nix
     ./waybar.nix
+    ./vim.nix
   ];
 
   programs.git = {
