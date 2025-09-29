@@ -100,6 +100,7 @@
   programs.waybar.enable = true;
 
 
+  services.tlp.enable = true;
   services.displayManager.ly = {
     enable = true;
   };
