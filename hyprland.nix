@@ -1,11 +1,11 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, host, ... }: 
 
 {
   wayland.windowManager.hyprland = {
     enable = true;
   
     settings = {    
-
+        monitor = if host == "m1k1" then "DP-2,2560x1440@239.97,0x0,1" else ",preferred,auto,auto";
     };
 
     extraConfig = 
@@ -28,7 +28,6 @@
     ################
 
     # See https://wiki.hyprland.org/Configuring/Monitors/
-    monitor=,preferred,auto,auto
 
 
     ###################
