@@ -1,6 +1,10 @@
-{ config, pkg, ... }:
+{ config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    xsel
+  ];
+
   programs.helix = {
     enable = true;
     settings  = {
