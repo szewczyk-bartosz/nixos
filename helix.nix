@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    xsel
+    wl-clipboard
   ];
 
   programs.helix = {

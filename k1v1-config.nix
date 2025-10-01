@@ -91,6 +91,7 @@
     pywal
     swaybg
     nwg-look
+    brightnessctl
   ];
 
   fonts.packages = with pkgs; [

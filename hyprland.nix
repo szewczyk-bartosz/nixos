@@ -234,7 +234,7 @@
     bind = $mainMod, M, exit,
     bind = $mainMod, E, exec, $fileManager
     bind = $mainMod, V, togglefloating,
-    bind = $mainMod, D, exec, $menu
+    bind = $mainMod, SPACE, exec, $menu
     bind = $mainMod, P, pseudo, # dwindle
     # bind = $mainMod, J, togglesplit, # dwindle
 
@@ -289,8 +289,8 @@
     bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
     bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
     bindel = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-    bindel = ,XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+
-    bindel = ,XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-
+    bindel = $mainMod, F6, exec, brightnessctl -e4 -n2 set 5%+
+    bindel = $mainMod, F5, exec, brightnessctl -e4 -n2 set 5%-
 
     # Requires playerctl
     bindl = , XF86AudioNext, exec, playerctl next
