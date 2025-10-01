@@ -25,6 +25,11 @@
           inherit system;
           modules = [ ./m1k1-config.nix ];
         };
+	
+	t3kl4 = nixpkgs.lib.nixosSystem {
+	  inherit system;
+	  modules = [ ./t3kl4-config.nix ];
+	};
       };
       homeConfigurations = {
         "k1v1" = home-manager.lib.homeManagerConfiguration {
@@ -38,6 +43,13 @@
         "m1k1" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { host = "m1k1"; };
+          modules = [
+            ./home.nix
+          ];
+        };
+        "t3kl4" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { host = "t3kl4"; };
           modules = [
             ./home.nix
           ];
