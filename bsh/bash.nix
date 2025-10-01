@@ -18,7 +18,7 @@
 
     switch-system() {
       local target="$${1:-${host}}"
-      nixos-rebuild switch --flake "$HOME/.dotfiles/"
+      sudo nixos-rebuild switch --flake "$HOME/.dotfiles/"
     }
 
     switch-full() {
@@ -27,7 +27,7 @@
       switch-home "$target"
     }
 
-    cat ~/.wal-cache
+    at ~/.wal-cache
 
 
     if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
