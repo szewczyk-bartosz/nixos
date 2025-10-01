@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     wl-clipboard
+    jdt-language-server
   ];
 
   programs.helix = {
