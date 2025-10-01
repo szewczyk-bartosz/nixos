@@ -27,7 +27,7 @@
         };
       };
       homeConfigurations = {
-        "cheryllamb@k1v1" = home-manager.lib.homeManagerConfiguration {
+        "k1v1" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { host = "k1v1"; };
           modules = [
@@ -35,7 +35,7 @@
           ];
         };
 
-        "cheryllamb@m1k1" = home-manager.lib.homeManagerConfiguration {
+        "m1k1" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { host = "m1k1"; };
           modules = [

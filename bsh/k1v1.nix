@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, host, ... }:
 
 {
   programs.bash = {
@@ -11,6 +11,22 @@
 
     bashrcExtra = 
     ''
+    switch-home() {
+      local target="$${1:-${host}}"
+      home-manager switch --flake "$HOME/.dotfiles/#$${target}"
+    }
+
+    switch-system() {
+      local target="$${1:-${host}}"
+      nixos-rebuild switch --flake "$HOME/.dotfiles/"
+    }
+
+    switch-full() {
+      local target="$${1:-${host}}"
+      switch-system
+      switch-home "$target"
+    }
+
     cat ~/.wal-cache
 
 

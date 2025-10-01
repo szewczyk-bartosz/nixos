@@ -4,16 +4,16 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      "switch-system" = "sudo nixos-rebuild switch --flake ~/.dotfiles/";
-      "switch-home" = "home-manager switch --flake ~/.dotfiles/#cheryllamb@m1k1";
-      "switch-full" = "sudo nixos-rebuild switch --flake ~/.dotfiles/ && home-manager switch --flake ~/.dotfiles/#cheryllamb@m1k1";
+      "open" = "xdg-open";
     };
 
     bashrcExtra = 
     ''
     switch-home() {
-      local target="$${1:-${host}}"
-      home-manager switch --flake "$HOME/.dotfiles/#$${target}"
+      local target="''${1:-${host}}"
+      echo "Home Manager: Loading config for ''${target}..."
+      echo "''${target}"
+      home-manager switch --flake "$HOME/.dotfiles/#''${target}"
     }
 
     switch-system() {

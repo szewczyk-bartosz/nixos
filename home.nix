@@ -1,6 +1,7 @@
 { config, pkgs, host, ... }:
 
 let
+  foo = "hello";
   bshConfig = import (
     ./bsh + "/${host}.nix"
   );
@@ -23,7 +24,7 @@ in rec {
   
   imports = [
     ./hyprland.nix # Hyprland config
-    bshConfig
+    ./bsh/bash.nix
     ./tmux.nix
     ./kitty.nix
     ./wofi.nix
