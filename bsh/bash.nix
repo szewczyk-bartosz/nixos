@@ -27,7 +27,7 @@
       switch-home "$target"
     }
 
-    at ~/.wal-cache
+    cat ~/.wal-cache
 
 
     if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
