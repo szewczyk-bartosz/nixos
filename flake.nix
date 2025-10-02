@@ -49,6 +49,13 @@
           ];
         };
 
+        "albino-cat@k1v1" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { host = "k1v1"; };
+          modules = [
+            ./home-albino-cat.nix
+          ];
+        };
 
 
         

@@ -30,7 +30,7 @@ in rec {
     ./home-packages.nix
   ];
 
-  programs.helix.settings.theme = "catppuccin_mocha";
+  programs.helix.settings.theme = "catppuccin_latte";
 
 	wayland.windowManager.hyprland = {
 		settings = {
@@ -59,11 +59,11 @@ in rec {
 
 
   home.file.".config/waybar/config.jsonc".source = ./waybar-config.jsonc;
-  home.file.".config/waybar/style.css".source = ./waybar-style-mocha.css;
-  home.file.".config/kitty/catppuccin-mocha.conf".source = ./kitty/catppuccin-mocha1.conf;
+  home.file.".config/waybar/style.css".source = ./waybar-style-latte.css;
+  home.file.".config/kitty/catppuccin-mocha.conf".source = ./kitty/catppuccin-latte1.conf;
 
   home.file.".wal-cache".source = ./wal-none;
-  home.file."wallpapers/arasaka.png".source = ./wallpapers/blue-swirls.png;
+  home.file."wallpapers/arasaka.png".source = ./wallpapers/beach.png;
 
 
   # Let Home Manager install and manage itself.
