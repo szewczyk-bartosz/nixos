@@ -32,28 +32,63 @@
 	};
       };
       homeConfigurations = {
+
         "k1v1" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { host = "k1v1"; };
           modules = [
-            ./home.nix
+            ./home-arasaka.nix
           ];
         };
 
+        "cat@k1v1" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { host = "k1v1"; };
+          modules = [
+            ./home-cat.nix
+          ];
+        };
+
+
+
+        
         "m1k1" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { host = "m1k1"; };
           modules = [
-            ./home.nix
+            ./home-arasaka.nix
           ];
         };
+        "cat@m1k1" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { host = "m1k1"; };
+          modules = [
+            ./home-cat.nix
+          ];
+        };
+
+
+        
+
+        
         "t3kl4" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { host = "t3kl4"; };
           modules = [
-            ./home.nix
+            ./home-arasaka.nix
           ];
         };
+
+        "cat@t3kl4" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { host = "t3kl4"; };
+          modules = [
+            ./home-cat.nix
+          ];
+        };
+
+
+        
       };
     };
 }

@@ -19,57 +19,21 @@ in rec {
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
   # = = = = = = = = = = = = = = = = = = = = =
   
   imports = [
     ./hyprland.nix # Hyprland config
     ./bsh/bash.nix
-    ./tmux.nix
     ./kitty.nix
     ./wofi.nix
     ./waybar.nix
     ./vim.nix
     ./helix.nix
+    ./git.nix
+    ./home-packages.nix
   ];
 
-  programs.git = {
-    enable = true;
-    userName = "szewczyk-bartosz";
-    userEmail = "cheryllamb123098@protonmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
-  };
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = with pkgs; [
-    python312
-    jdk24
-    cowsay
-    gimp
-    grim
-    slurp
-  ];
-
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
-  programs.neovim.enable = true;
-  programs.bash.enable = true;
-
-  programs.rofi = {
-    enable = true;
-    font = "JetbrainsMono Nerd Font 20";
-  };
-
-  programs.fastfetch = {
-    enable = true;
-
-  };
-
-  
   home.pointerCursor = 
     let 
       getFrom = url: hash: name: {
@@ -111,4 +75,5 @@ in rec {
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  home.stateVersion = "25.05"; # Please read the comment before changing.
 }

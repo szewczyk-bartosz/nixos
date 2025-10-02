@@ -6,10 +6,10 @@
     enable = true;
     style =
     ''
-      @define-color arasaka #EE0000;
-      @define-color arasakaDark #880000;
-      @define-color arasakaDarker #440000;
-      @define-color arasakaDarkerer #330000;
+      @define-color arasaka #87a5ff;
+      @define-color arasakaDark #3d528f;
+      @define-color arasakaDarker #253973;
+      @define-color arasakaDarkerer #131f40;
       @define-color background #090909;
       * {
         font-family: JetbrainsMono Nerd Font;

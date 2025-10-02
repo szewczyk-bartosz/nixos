@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-k1v1.nix
+      ./hardware-configs/hardware-k1v1.nix
       ./system-config.nix
     ];
 

@@ -1,0 +1,75 @@
+@define-color arasaka #EE0000;
+@define-color arasakaDark #880000;
+@define-color arasakaDarker #440000;
+@define-color arasakaDarkerer #330000;
+@define-color background #090909;
+
+* {
+  font-family:"JetbrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 17px;
+  background-color: @background;
+  color: @arasaka;
+}
+
+
+window#waybar > box {
+  border-top: 2px solid;
+  border-color: @arasakaDarker;
+}
+
+
+
+
+#custom-distro {
+  padding-left: 6px;
+  padding-right: 17px;
+	font-size: 32px;
+  border-radius: 20px;
+  background-color: @arasakaDarker;
+  margin-left: 12px;
+  margin-right: 10px;
+}
+
+#clock.date {
+}
+
+#clock.time {
+  margin-right: 10px;
+  padding-top: 0px;
+  margin-top: 0px;
+  padding: 0 6px 0 6px
+}
+
+
+#network {
+  border-color: @arasakaDark;
+  border-radius: 2px;
+  background-color: @arasakaDarkerer;
+  border-style: solid;
+  border-width: 1px;
+  margin: 5px 0 5px 0;
+  padding-right: 4px;
+}
+
+#cpu {
+}
+
+#memory {
+}
+
+
+
+#workspaces {
+  padding-left: 6px;
+} 
+#workspaces button label {
+	padding: 0 1px;
+  font-size: 20px;
+  color: @arasakaDark;
+}
+
+#workspaces .active label {
+	font-size: 23px;
+  color: @arasaka;
+}

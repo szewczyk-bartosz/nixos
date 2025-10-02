@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-m1k1.nix
+      ./system-config.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -73,25 +74,7 @@
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    direnv
-    nix-direnv
-    git
-    vim-full # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    dunst
-    wofi
-    brave
-    xdg-desktop-portal-gtk
-    bash
-    xxkb
-    alacritty
-    libnotify
-    # tmux disabled pending resolving the tmux issue
-    pywal
-    swaybg
-    nwg-look
-  ];
+  
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
