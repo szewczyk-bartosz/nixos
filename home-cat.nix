@@ -19,15 +19,15 @@ in rec {
   # = = = = = = = = = = = = = = = = = = = = =
   
   imports = [
-    ./hyprland.nix # Hyprland config
-    ./bsh/bash.nix
-    ./kitty.nix
-    ./wofi-cat.nix
-    ./waybar.nix
-    ./vim.nix
-    ./helix.nix
-    ./git.nix
-    ./home-packages.nix
+    ./home-modules/hyprland.nix # Hyprland config
+    ./home-modules/bash.nix
+    ./home-modules/kitty.nix
+    ./home-modules/wofi-mocha.nix
+    ./home-modules/waybar.nix
+    ./home-modules/vim.nix
+    ./home-modules/helix.nix
+    ./home-modules/git.nix
+    ./home-modules/home-packages.nix
   ];
 
   programs.helix.settings.theme = "catppuccin_mocha";
@@ -58,11 +58,11 @@ in rec {
   # };
 
 
-  home.file.".config/waybar/config.jsonc".source = ./waybar-config.jsonc;
-  home.file.".config/waybar/style.css".source = ./waybar-style-mocha.css;
-  home.file.".config/kitty/catppuccin-mocha.conf".source = ./kitty/catppuccin-mocha1.conf;
+  home.file.".config/waybar/config.jsonc".source = ./raw-config/waybar-config.jsonc;
+  home.file.".config/waybar/style.css".source = ./raw-configs/waybar-style-mocha.css;
+  home.file.".config/kitty/catppuccin-mocha.conf".source = ./raw-config/catppuccin-mocha1.conf;
 
-  home.file.".wal-cache".source = ./wal-none;
+  home.file.".wal-cache".source = ./raw-config/wal-none;
   home.file."wallpapers/arasaka.png".source = ./wallpapers/blue-swirls.png;
 
 

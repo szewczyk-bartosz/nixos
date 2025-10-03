@@ -22,15 +22,15 @@ in rec {
   # = = = = = = = = = = = = = = = = = = = = =
   
   imports = [
-    ./hyprland.nix # Hyprland config
-    ./bsh/bash.nix
-    ./kitty.nix
-    ./wofi.nix
-    ./waybar.nix
-    ./vim.nix
-    ./helix.nix
-    ./git.nix
-    ./home-packages.nix
+    ./home-modules/hyprland.nix # Hyprland config
+    ./home-modules/bash.nix
+    ./home-modules/kitty.nix
+    ./home-modules/wofi.nix
+    ./home-modules/waybar.nix
+    ./home-modules/vim.nix
+    ./home-modules/helix.nix
+    ./home-modules/git.nix
+    ./home-modules/home-packages.nix
   ];
 
 
@@ -66,10 +66,11 @@ in rec {
   };
 
 
-  home.file.".config/waybar/config.jsonc".source = ./waybar-config.jsonc;
-  home.file.".config/waybar/style.css".source = ./waybar-style.css;
+  home.file.".config/waybar/config.jsonc".source = ./raw-configs/waybar-config.jsonc;
+  home.file.".config/waybar/style.css".source = ./raw-configs/waybar-style.css;
 
-  home.file.".wal-cache".source = ./wal-cache;
+
+  home.file.".wal-cache".source = ./raw-configs/wal-none;
   home.file."wallpapers/arasaka.png".source = ./wallpapers/arasaka.png;
 
 

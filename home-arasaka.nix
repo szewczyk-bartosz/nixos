@@ -2,9 +2,6 @@
 
 let
   foo = "hello";
-  bshConfig = import (
-    ./bsh + "/${host}.nix"
-  );
 in rec {
   # = = = = = = = = = = = = = = = = = = = = =
   # Home Manager needs a bit of information about you and the paths it should
@@ -22,15 +19,15 @@ in rec {
   # = = = = = = = = = = = = = = = = = = = = =
   
   imports = [
-    ./hyprland.nix # Hyprland config
-    ./bsh/bash.nix
-    ./kitty.nix
-    ./wofi-arasaka.nix
-    ./waybar.nix
-    ./vim.nix
-    ./helix.nix
-    ./git.nix
-    ./home-packages.nix
+    ./home-modules/hyprland.nix # Hyprland config
+    ./home-modules/bash.nix
+    ./home-modules/kitty.nix
+    ./home-modules/wofi-arasaka.nix
+    ./home-modules/waybar.nix
+    ./home-modules/vim.nix
+    ./home-modules/helix.nix
+    ./home-modules/git.nix
+    ./home-modules/home-packages.nix
   ];
 
 
@@ -77,10 +74,10 @@ in rec {
   };
 
 
-  home.file.".config/waybar/config.jsonc".source = ./waybar-config.jsonc;
-  home.file.".config/waybar/style.css".source = ./waybar-style-arasaka.css;
+  home.file.".config/waybar/config.jsonc".source = ./raw-configs/waybar-config.jsonc;
+  home.file.".config/waybar/style.css".source = ./raw-configs/waybar-style-arasaka.css;
 
-  home.file.".wal-cache".source = ./arasaka-wal;
+  home.file.".wal-cache".source = ./raw-configs/arasaka-wal;
   home.file."wallpapers/arasaka.png".source = ./wallpapers/arasaka.png;
 
 

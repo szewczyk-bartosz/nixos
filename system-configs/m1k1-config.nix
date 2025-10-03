@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-m1k1.nix
+      ../hardware-configs/hardware-m1k1.nix
       ./system-config.nix
     ];
 

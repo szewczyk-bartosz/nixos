@@ -12,17 +12,17 @@
     switch-home() {
       local target="''${1:-${host}}"
       echo "Home Manager: Loading config for ''${target}..."
-      echo "''${target}"
       home-manager switch --flake "$HOME/.dotfiles/#''${target}"
     }
 
     switch-system() {
-      local target="$${1:-${host}}"
+      local target="''${1:-${host}}"
       sudo nixos-rebuild switch --flake "$HOME/.dotfiles/"
     }
 
     switch-full() {
-      local target="$${1:-${host}}"
+      local target="''${1:-${host}}"
+      echo "Home Manager: Loading config for ''${target}..."
       switch-system
       switch-home "$target"
     }

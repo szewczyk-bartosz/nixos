@@ -18,18 +18,18 @@
       nixosConfigurations = {
         k1v1 = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./k1v1-config.nix ];
+          modules = [ .system-configs/k1v1-config.nix ];
         };
 
         m1k1 = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./m1k1-config.nix ];
+          modules = [ .system-configs/m1k1-config.nix ];
         };
 	
-	t3kl4 = nixpkgs.lib.nixosSystem {
-	  inherit system;
-	  modules = [ ./t3kl4-config.nix ];
-	};
+      	t3kl4 = nixpkgs.lib.nixosSystem {
+      	  inherit system;
+      	  modules = [ ./system-configs/t3kl4-config.nix ];
+      	};
       };
       homeConfigurations = {
 
@@ -73,7 +73,13 @@
             ./home-cat.nix
           ];
         };
-
+        "albino-cat@m1k1" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { host = "m1k1"; };
+          modules = [
+            ./home-albino-cat.nix
+          ];
+        };
 
         
 
@@ -91,6 +97,13 @@
           extraSpecialArgs = { host = "t3kl4"; };
           modules = [
             ./home-cat.nix
+          ];
+        };
+        "albino-cat@t3kl4" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { host = "t3kl4"; };
+          modules = [
+            ./home-albino-cat.nix
           ];
         };
 
