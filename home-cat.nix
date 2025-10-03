@@ -58,11 +58,11 @@ in rec {
   # };
 
 
-  home.file.".config/waybar/config.jsonc".source = ./raw-config/waybar-config.jsonc;
+  home.file.".config/waybar/config.jsonc".source = ./raw-configs/waybar-config.jsonc;
   home.file.".config/waybar/style.css".source = ./raw-configs/waybar-style-mocha.css;
-  home.file.".config/kitty/catppuccin-mocha.conf".source = ./raw-config/catppuccin-mocha1.conf;
+  home.file.".config/kitty/catppuccin-mocha.conf".source = ./raw-configs/catppuccin-mocha1.conf;
 
-  home.file.".wal-cache".source = ./raw-config/wal-none;
+  home.file.".wal-cache".source = ./raw-configs/wal-none;
   home.file."wallpapers/arasaka.png".source = ./wallpapers/blue-swirls.png;
 
 
