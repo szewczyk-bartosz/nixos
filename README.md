@@ -13,6 +13,9 @@ Volume popup when changing volume
 
 Waybar animations
 
+Icons for the catppuccin themes
+
+
 
 
 ## Todos:
