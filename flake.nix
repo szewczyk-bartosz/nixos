@@ -18,12 +18,12 @@
       nixosConfigurations = {
         k1v1 = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ .system-configs/k1v1-config.nix ];
+          modules = [ ./system-configs/k1v1-config.nix ];
         };
 
         m1k1 = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ .system-configs/m1k1-config.nix ];
+          modules = [ ./system-configs/m1k1-config.nix ];
         };
 	
       	t3kl4 = nixpkgs.lib.nixosSystem {

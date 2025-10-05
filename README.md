@@ -3,6 +3,18 @@ My nixOS configuration files
 
 Currently in the ricing process, trying to create an Cyberpunk Arasaka themed desktop
 
+
+## Current focus:
+More of a desktop experience, make sure the file manager works and that the theme is consistent across the system
+
+Add some sort of a way to connect to wifi etc without nmcli on command line [Maybe?]
+
+Volume popup when changing volume
+
+Waybar animations
+
+
+
 ## Todos:
 - [x] Basic, but aesthetic waybar
 - [x] Cursor changed
@@ -10,7 +22,7 @@ Currently in the ricing process, trying to create an Cyberpunk Arasaka themed de
 - [x] Neovim setup for development (swapped to helix)
 - [x] Direnv set up (but not part of this repo)
 - [ ] Finish configuring hyprland and move to a nix based configuration
-
+- [ ] 
 
 Credits:
 
