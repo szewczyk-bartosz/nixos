@@ -3,6 +3,7 @@
 {
   programs.thunar.enable = true;
   environment.systemPackages = with pkgs; [
+    syncthing
     direnv
     nix-direnv
     ffmpeg
