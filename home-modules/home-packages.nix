@@ -1,13 +1,18 @@
-{ config, pkgs, host, ... }:
+{ config, lib, pkgs, host, ... }:
 
 {
+
+  nixpkgs.config = {
+    allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "spotify"
+    ];
+  };
+
   home.packages = with pkgs; [
-    python312
-    jdk24
-    cowsay
-    gimp
+    spotify
     grim
     slurp
-    fastfetch
   ];
 }

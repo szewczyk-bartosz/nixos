@@ -7,8 +7,13 @@
     syncthing
     direnv
     nix-direnv
+    python312
     ffmpeg
+    fastfetch
+    keepassxc
+    cmatrix
     git
+    gimp
     vim-full # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     dunst
@@ -24,5 +29,8 @@
     swaybg
     nwg-look
     brightnessctl
+    vlc
+    obs-studio
+    webcord
   ];
 }
