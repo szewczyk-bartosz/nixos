@@ -46,8 +46,12 @@ in rec {
 			include catppuccin-mocha.conf
 		'';
 
-  # home.pointerCursor = 
 
+  home.pointerCursor = {
+      name = "Catppuccin-Mocha-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
+      size = 16;
+    };
 
   # wayland.windowManager.hyprland.settings = {
   #   exec-once = [
