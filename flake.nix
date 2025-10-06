@@ -46,7 +46,7 @@
           inherit pkgs;
           extraSpecialArgs = { host = hostname; };
           modules = [
-            ./home-cat.nix
+            ./home-mocha.nix
           ];
         };
 
@@ -54,7 +54,7 @@
           inherit pkgs;
           extraSpecialArgs = { host = hostname; };
           modules = [
-            ./home-albino-cat.nix
+            ./home-latte.nix
           ];
         };
       };
