@@ -14,7 +14,19 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      hostname = builtins.getEnv "HOSTNAME";
+
+      mkHomeConfig = theme: hostname:
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            host = hostname;
+            theme = theme;
+          };
+          modules = [ ./home.nix ];
+        };
+
+      themes = [ "mocha" "latte" "arasaka" ];
+      hosts = [ "k1v1" "m1k1" "t3kl4" ];
     in {
       nixosConfigurations = {
         k1v1 = nixpkgs.lib.nixosSystem {
@@ -32,31 +44,10 @@
       	  modules = [ ./system-configs/t3kl4-config.nix ];
       	};
       };
-      homeConfigurations = {
 
-        "arasaka" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { host = hostname; };
-          modules = [
-            ./home-arasaka.nix
-          ];
-        };
+      homeConfigurations = builtins.listToAttrs (
+        builtins.concatMap (theme: builtins.map (host: { name = "${theme}.${host}"; value = mkHomeConfig theme host; }) hosts) themes
+      );
 
-        "mocha" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { host = hostname; };
-          modules = [
-            ./home-mocha.nix
-          ];
-        };
-
-        "latte" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { host = hostname; };
-          modules = [
-            ./home-latte.nix
-          ];
-        };
-      };
     };
 }

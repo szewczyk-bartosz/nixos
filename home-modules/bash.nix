@@ -12,7 +12,7 @@
     switch-home() {
       local target="''${1:-mocha}"
       echo "Home Manager: Loading config for ''${target}..."
-      home-manager switch --flake "$HOME/.dotfiles/#''${target}"
+      home-manager switch --flake "$HOME/.dotfiles/#''${target}.$HOSTNAME"
       nwg-look -a
     }
 

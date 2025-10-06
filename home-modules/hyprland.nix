@@ -1,4 +1,4 @@
-{ config, pkgs, host, ... }: 
+{ config, pkgs, host, theme, ... }: 
 
 {
   wayland.windowManager.hyprland = {
@@ -11,6 +11,8 @@
     extraConfig = 
     ''
 
+    # THE HOST WAS EVALUATED AS ${host}
+    # THE THEME WAS EVALUATED AS ${theme}
     general {
         gaps_in = 5
         gaps_out = 20

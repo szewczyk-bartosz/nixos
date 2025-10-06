@@ -1,9 +1,9 @@
-{ config, pkgs, host, ... }:
+{ config, pkgs, host, theme, ... }:
 
 let
   foo = "hello";
-  bshConfig = import (
-    ./bsh + "/${host}.nix"
+  themeConfig = import (
+    ./themes + "/${theme}.nix"
   );
 in rec {
   # = = = = = = = = = = = = = = = = = = = = =
@@ -12,6 +12,21 @@ in rec {
   home.username = "cheryllamb";
   home.homeDirectory = "/home/cheryllamb";
 
+  
+  imports = [
+    ./home-modules/hyprland.nix # Hyprland config
+    ./home-modules/bash.nix
+    ./home-modules/kitty.nix
+    ./home-modules/waybar.nix
+    ./home-modules/vim.nix
+    ./home-modules/helix.nix
+    ./home-modules/git.nix
+    ./home-modules/home-packages.nix
+    themeConfig
+  ];
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -20,61 +35,5 @@ in rec {
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   # = = = = = = = = = = = = = = = = = = = = =
-  
-  imports = [
-    ./home-modules/hyprland.nix # Hyprland config
-    ./home-modules/bash.nix
-    ./home-modules/kitty.nix
-    ./home-modules/wofi.nix
-    ./home-modules/waybar.nix
-    ./home-modules/vim.nix
-    ./home-modules/helix.nix
-    ./home-modules/git.nix
-    ./home-modules/home-packages.nix
-  ];
-
-
-  home.pointerCursor = 
-    let 
-      getFrom = url: hash: name: {
-          gtk.enable = true;
-          x11.enable = true;
-          name = name;
-          size = 48;
-          package = 
-            pkgs.runCommand "moveUp" {} ''
-              mkdir -p $out/share/icons
-              ln -s ${pkgs.fetchzip {
-                url = url;
-                hash = hash;
-              }} $out/share/icons/${name}
-          '';
-        };
-    in
-      getFrom 
-        "https://github.com/szewczyk-bartosz/KanadaCursors/releases/download/ready/KanadaCursors.tar.gz"
-        "sha256-lHDrGjj3lLeKTZG/DiX2qUdu1a/6szHDJVDRvZOZ7Fs="
-        "Kanada";
-
-
-  wayland.windowManager.hyprland.settings = {
-    exec-once = [
-      # Fixes cursor themes in gnome apps under hyprland
-      "gsettings set org.gnome.desktop.interface cursor-theme '${config.home.pointerCursor.name}'"
-      "gsettings set org.gnome.desktop.interface cursor-size ${toString home.pointerCursor.size}"
-    ];
-  };
-
-
-  home.file.".config/waybar/config.jsonc".source = ./raw-configs/waybar-config.jsonc;
-  home.file.".config/waybar/style.css".source = ./raw-configs/waybar-style.css;
-
-
-  home.file.".wal-cache".source = ./raw-configs/wal-none;
-  home.file."wallpapers/arasaka.png".source = ./wallpapers/arasaka.png;
-
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
   home.stateVersion = "25.05"; # Please read the comment before changing.
 }
