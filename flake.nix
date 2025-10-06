@@ -14,6 +14,7 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      hostname = builtins.getEnv "HOSTNAME";
     in {
       nixosConfigurations = {
         k1v1 = nixpkgs.lib.nixosSystem {
@@ -33,82 +34,29 @@
       };
       homeConfigurations = {
 
-        "k1v1" = home-manager.lib.homeManagerConfiguration {
+        "arasaka" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { host = "k1v1"; };
+          extraSpecialArgs = { host = hostname; };
           modules = [
             ./home-arasaka.nix
           ];
         };
 
-        "cat@k1v1" = home-manager.lib.homeManagerConfiguration {
+        "mocha" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { host = "k1v1"; };
+          extraSpecialArgs = { host = hostname; };
           modules = [
             ./home-cat.nix
           ];
         };
 
-        "albino-cat@k1v1" = home-manager.lib.homeManagerConfiguration {
+        "latte" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { host = "k1v1"; };
+          extraSpecialArgs = { host = hostname; };
           modules = [
             ./home-albino-cat.nix
           ];
         };
-
-
-        
-        "m1k1" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { host = "m1k1"; };
-          modules = [
-            ./home-arasaka.nix
-          ];
-        };
-        "cat@m1k1" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { host = "m1k1"; };
-          modules = [
-            ./home-cat.nix
-          ];
-        };
-        "albino-cat@m1k1" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { host = "m1k1"; };
-          modules = [
-            ./home-albino-cat.nix
-          ];
-        };
-
-        
-
-        
-        "t3kl4" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { host = "t3kl4"; };
-          modules = [
-            ./home-arasaka.nix
-          ];
-        };
-
-        "cat@t3kl4" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { host = "t3kl4"; };
-          modules = [
-            ./home-cat.nix
-          ];
-        };
-        "albino-cat@t3kl4" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { host = "t3kl4"; };
-          modules = [
-            ./home-albino-cat.nix
-          ];
-        };
-
-
-        
       };
     };
 }
