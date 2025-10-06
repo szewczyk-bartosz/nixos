@@ -53,6 +53,30 @@ in rec {
       size = 16;
     };
 
+	gtk = {
+    enable = true;
+    theme = {
+      # name = "catppuccin-mocha-sapphire-standard+normal";
+      name = "Catppuccin-Latte-Standard-Sapphire-Light";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "sapphire" ];
+        size = "standard";
+        tweaks = [ "normal" ];
+        variant = "latte";
+      };
+    };
+
+		iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };    
+
+  };
+  xdg.configFile = {
+	  "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+	  "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+	  "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+	};
   # wayland.windowManager.hyprland.settings = {
   #   exec-once = [
   #     # Fixes cursor themes in gnome apps under hyprland

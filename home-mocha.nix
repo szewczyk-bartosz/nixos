@@ -53,13 +53,42 @@ in rec {
       size = 16;
     };
 
-  # wayland.windowManager.hyprland.settings = {
-  #   exec-once = [
-  #     # Fixes cursor themes in gnome apps under hyprland
-  #     "gsettings set org.gnome.desktop.interface cursor-theme '${config.home.pointerCursor.name}'"
-  #     "gsettings set org.gnome.desktop.interface cursor-size ${toString home.pointerCursor.size}"
-  #   ];
-  # };
+
+
+	gtk = {
+    enable = true;
+    theme = {
+      # name = "catppuccin-mocha-sapphire-standard+normal";
+      name = "Catppuccin-Mocha-Standard-Sapphire-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "sapphire" ];
+        size = "standard";
+        tweaks = [ "normal" ];
+        variant = "mocha";
+      };
+    };
+
+		iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };    
+
+  };
+  xdg.configFile = {
+	  "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+	  "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+	  "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+	};
+
+
+	# home.sessionVariables = {
+	#   GTK_THEME = "Catppuccin-Mocha-Standard-Sapphire-Dark";
+	#   XCURSOR_THEME = "Catppuccin-Mocha-Dark-Cursors";
+	#   XDG_CURRENT_DESKTOP = "Hyprland";
+	#   XDG_SESSION_TYPE = "wayland";
+	#   QT_QPA_PLATFORMTHEME = "gtk3";
+	# };
+	
 
 
   home.file.".config/waybar/config.jsonc".source = ./raw-configs/waybar-config.jsonc;
