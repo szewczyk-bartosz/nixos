@@ -3,6 +3,7 @@
 {
   programs.thunar.enable = true;
   programs.dconf.enable = true;
+  services.lorri.enable = true;
   environment.systemPackages = with pkgs; [
     syncthing
     direnv
