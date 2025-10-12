@@ -1,18 +1,18 @@
 # Installation:
 
-1. Get nixos
+## 1. Get nixos
 Get yourself a nixOS iso:
 https://nixos.org/download/
 
-2. Preparation
+## 2. Preparation
 Boot it up, create your partition scheme, format the partitions and mount them
 
-3. Generating config
+## 3. Generating config
 Generate the config and assuming you mounted your main storage partition at /mnt
 
 nixos-generate-config --root /mnt
 
-4. Edit config
+## 4. Edit config
 
 Look at example-config.nix for an example
 
@@ -30,16 +30,16 @@ Enable flakes and nix command and the bottom of the file
 Honestly can just copy the same thing altough the above are the only important things
 
 
-5. Install system
+## 5. Install system
 nixos-install --root /mnt
 
-6. Reboot
+## 6. Reboot
 reboot
 
 You get the idea
 
 
-7. Cloning this git repo
+## 7. Cloning this git repo
 
 git clone https://github.com/szewczyk-bartosz/nixos.git
 
@@ -48,15 +48,15 @@ cd nixos
 rm -rf .git
 
 
-8. Next steps
+## 8. Next steps
 
 I will write a guide to add your own computer but for now you can just use my laptop setup out of the box
 
-9. Copy your hardware config
+## 9. Copy your hardware config
 
 cp /etc/nixos/hardware-configuration.nix ~/nixos/hardware-configs/hardware-YOURHOSTNAME.nix
 
-10. Edit the config to fit your computer
+## 10. Edit the config to fit your computer
 
 Open the file k1v1-config.nix under system configs
 
@@ -75,7 +75,7 @@ do
 ../hardware-configs/hardware-YOURHOSTNAME.nix
 
 
-11. Install home manager
+## 11. Install home manager
 
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
 
@@ -83,7 +83,7 @@ nix-channel --update
 
 nix-shell '<home-manager>' -A install
 
-12. Finish installation
+## 12. Finish installation
 
 Now you just need to decide on the theme
 
