@@ -21,7 +21,7 @@
 
   # Steam Stuff
   programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
+  # programs.steam.gamescopeSession.enable = true; # Enable this if you want to use big picture mode
   programs.gamemode.enable = true;
 
   # Use the systemd-boot EFI boot loader.
