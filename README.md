@@ -10,7 +10,7 @@ Boot it up, create your partition scheme, format the partitions and mount them
 ## 3. Generating config
 Generate the config and assuming you mounted your main storage partition at /mnt
 
-nixos-generate-config --root /mnt
+`nixos-generate-config --root /mnt`
 
 ## 4. Edit config
 
@@ -31,21 +31,21 @@ Honestly can just copy the same thing altough the above are the only important t
 
 
 ## 5. Install system
-nixos-install --root /mnt
+`nixos-install --root /mnt`
 
 ## 6. Reboot
-reboot
+`reboot`
 
 You get the idea
 
 
 ## 7. Cloning this git repo
 
-git clone https://github.com/szewczyk-bartosz/nixos.git
+`git clone https://github.com/szewczyk-bartosz/nixos.git`
 
 Remove the git repo part of this
-cd nixos
-rm -rf .git
+`cd nixos`
+`rm -rf .git`
 
 
 ## 8. Next steps
@@ -54,7 +54,7 @@ I will write a guide to add your own computer but for now you can just use my la
 
 ## 9. Copy your hardware config
 
-cp /etc/nixos/hardware-configuration.nix ~/nixos/hardware-configs/hardware-YOURHOSTNAME.nix
+`cp /etc/nixos/hardware-configuration.nix ~/nixos/hardware-configs/hardware-YOURHOSTNAME.nix`
 
 ## 10. Edit the config to fit your computer
 
@@ -68,20 +68,20 @@ Edit the hardware-config chosen to your one
 
 so instead of
 
-../hardware-configs/hardware-k1v1.nix
+`../hardware-configs/hardware-k1v1.nix`
 
 do
 
-../hardware-configs/hardware-YOURHOSTNAME.nix
+`../hardware-configs/hardware-YOURHOSTNAME.nix`
 
 
 ## 11. Install home manager
 
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
+`nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager`
 
-nix-channel --update
+`nix-channel --update`
 
-nix-shell '<home-manager>' -A install
+`nix-shell '<home-manager>' -A install`
 
 ## 12. Finish installation
 
@@ -91,11 +91,11 @@ i will go through the commands for the Arasaka theme
 
 From within the nixos directory (the one you cloned):
 
-sudo nixos-rebuild switch --flake .#k1v1
+`sudo nixos-rebuild switch --flake .#k1v1`
 
 then
 
-home-manager switch --flake .#arasaka.k1v1
+`home-manager switch --flake .#arasaka.k1v1`
 
 Wait for the commands to finish then reboot and youre done!
 
