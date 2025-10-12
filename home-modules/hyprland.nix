@@ -326,6 +326,10 @@
     unbind = $mainMod SHIFT, (
     unbind = $mainMod SHIFT, )
 
+    windowrulev2 = workspace 10, class:^(steam)$
+    windowrulev2 = workspace 9, class:^(Spotify)$
+    exec-once = workspace 10 silent, steam
+    exec-once = workspace 9 silent, spotify
     '';
 
 
