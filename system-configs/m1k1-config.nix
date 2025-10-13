@@ -12,7 +12,6 @@
     ];
 
 
-  nixpkgs.config.allowUnfree = true;
   # Graphics Acceleration
   hardware.graphics = {
     enable = true;

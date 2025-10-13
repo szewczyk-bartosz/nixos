@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
   programs.thunar.enable = true;
   programs.dconf.enable = true;
   services.lorri.enable = true;
