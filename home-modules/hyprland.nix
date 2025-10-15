@@ -211,10 +211,6 @@
         }
     }
 
-    # https://wiki.hyprland.org/Configuring/Variables/#gestures
-    gestures {
-        workspace_swipe = false
-    }
 
     # Example per-device config
     # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
@@ -272,7 +268,7 @@
     bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
 
     # CUSTOM
-    bind = $mainMod, Tab, workspace, previous
+    # bind = $mainMod, Tab, workspace, previous
 
     # Example special workspace (scratchpad)
     # bind = $mainMod, S, togglespecialworkspace, magic
@@ -319,6 +315,7 @@
     layerrule = noanim, ^(wofi)$
 
     exec-once = waybar
+    exec-once = hyprshell run &
     exec-once = swaybg -i /home/cheryllamb/wallpapers/arasaka.png
 
     unbind = $mainMod SHIFT, 9
@@ -327,9 +324,9 @@
     unbind = $mainMod SHIFT, )
 
     windowrulev2 = workspace 10, class:^(steam)$
-    windowrulev2 = workspace 9, class:^(Spotify)$
-    exec-once = workspace 10 silent, steam
-    exec-once = workspace 9 silent, spotify
+    windowrulev2 = workspace 9, class:^(spotify|Spotify)$
+    exec-once = steam
+    exec-once = spotify
     '';
 
 

@@ -21,6 +21,7 @@ in rec {
     ./home-modules/vim.nix
     ./home-modules/helix.nix
     ./home-modules/git.nix
+    ./home-modules/hyprshell.nix
     ./home-modules/home-packages.nix
     themeConfig
   ];

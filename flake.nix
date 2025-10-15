@@ -15,6 +15,12 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
 
+      mkSystemConfig = hostname:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./system-configs/${hostname}-config.nix ];
+        };
+
       mkHomeConfig = theme: hostname:
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -28,23 +34,9 @@
       themes = [ "mocha" "latte" "arasaka" ];
       hosts = [ "k1v1" "m1k1" "t3kl4" ];
     in {
-      nixosConfigurations = {
-        k1v1 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [ ./system-configs/k1v1-config.nix ];
-        };
-
-        m1k1 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [ ./system-configs/m1k1-config.nix ];
-        };
-	
-      	t3kl4 = nixpkgs.lib.nixosSystem {
-      	  inherit system;
-      	  modules = [ ./system-configs/t3kl4-config.nix ];
-      	};
-      };
-
+      nixosConfigurations = builtins.listToAttrs (
+        builtins.map (host: { name = host; value = mkSystemConfig host; }) hosts
+      );
       homeConfigurations = builtins.listToAttrs (
         builtins.concatMap (theme: builtins.map (host: { name = "${theme}.${host}"; value = mkHomeConfig theme host; }) hosts) themes
       );

@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-	imports = [ ../home-modules/wofi-latte.nix ];
   programs.helix.settings.theme = "catppuccin_latte";
 
 	wayland.windowManager.hyprland = {

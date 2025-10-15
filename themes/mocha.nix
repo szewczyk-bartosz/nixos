@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-	imports = [ ../home-modules/wofi-mocha.nix ];
   programs.helix.settings.theme = "catppuccin_mocha";
 
 	wayland.windowManager.hyprland = {

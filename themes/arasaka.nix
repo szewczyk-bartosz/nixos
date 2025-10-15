@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-	imports = [ ../home-modules/wofi-arasaka.nix ];
   programs.helix.settings.theme = "peachpuff";
 	wayland.windowManager.hyprland = {
 		settings = {
