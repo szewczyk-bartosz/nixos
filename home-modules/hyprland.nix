@@ -60,7 +60,6 @@
     # Set programs that you use
     $terminal = kitty
     $fileManager = dolphin
-    $menu = wofi --show drun
 
 
     #################
@@ -233,7 +232,7 @@
     bind = $mainMod, M, exit,
     bind = $mainMod, E, exec, $fileManager
     bind = $mainMod, V, togglefloating,
-    bind = $mainMod, SPACE, exec, $menu
+    # bind = $mainMod, SPACE, exec, $menu
     bind = $mainMod, P, pseudo, # dwindle
     # bind = $mainMod, J, togglesplit, # dwindle
 
