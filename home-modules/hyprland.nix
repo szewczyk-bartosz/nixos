@@ -229,7 +229,7 @@
     # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
     bind = $mainMod, RETURN, exec, $terminal
     bind = $mainMod SHIFT, Q, killactive,
-    bind = $mainMod, M, exit,
+    bind = $mainMod SHIFT, O, exit,
     bind = $mainMod, E, exec, $fileManager
     bind = $mainMod, V, togglefloating,
     # bind = $mainMod, SPACE, exec, $menu
@@ -324,6 +324,7 @@
 
     windowrulev2 = workspace 10, class:^(steam)$
     windowrulev2 = workspace 9, class:^(spotify|Spotify)$
+    exec-once = hyprshell run &
     exec-once = steam
     exec-once = spotify
     '';

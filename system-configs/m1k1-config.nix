@@ -22,7 +22,9 @@
   programs.steam.enable = true;
   # programs.steam.gamescopeSession.enable = true; # Enable this if you want to use big picture mode
   programs.gamemode.enable = true;
+  hardware.openrazer.enable = true;
 
+  
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -59,7 +61,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cheryllamb = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "openrazer" "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];

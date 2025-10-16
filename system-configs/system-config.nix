@@ -6,6 +6,8 @@
   programs.dconf.enable = true;
   services.lorri.enable = true;
   environment.systemPackages = with pkgs; [
+    razergenie
+    easyeffects
     libreoffice
     syncthing
     direnv

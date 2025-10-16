@@ -14,5 +14,6 @@
     spotify
     grim
     slurp
+    path-of-building
   ];
 }
