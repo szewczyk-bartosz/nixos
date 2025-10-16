@@ -5,10 +5,17 @@
     nixpkgs = {
       url = "nixpkgs/nixos-unstable";
     };
+
     home-manager = {
       url = "github:nix-community/home-manager/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
   outputs = {self, nixpkgs, home-manager, ... }:
     let
@@ -18,7 +25,14 @@
       mkSystemConfig = hostname:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./system-configs/${hostname}-config.nix ];
+          modules = [
+             ./system-configs/${hostname}-config.nix
+             ({ pkgs, ... }: {
+               nixpkgs.overlays = [ rust-overlay.overlays.default ];
+               environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+              })
+          ];
+
         };
 
       mkHomeConfig = theme: hostname:
