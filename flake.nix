@@ -17,7 +17,7 @@
     };
 
   };
-  outputs = {self, nixpkgs, home-manager, ... }:
+  outputs = {self, nixpkgs, home-manager, rust-overlay, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};

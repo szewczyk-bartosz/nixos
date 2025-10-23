@@ -11,6 +11,9 @@
       ./system-config.nix
     ];
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="362d", ATTR{idProduct}=="0304", MODE="0666"
+  '';
 
   # Graphics Acceleration
   hardware.graphics = {
