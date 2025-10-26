@@ -19,6 +19,7 @@ in rec {
     ./home-modules/kitty.nix
     ./home-modules/waybar.nix
     ./home-modules/vim.nix
+    ./home-modules/obsidian.nix
     ./home-modules/helix.nix
     ./home-modules/git.nix
     ./home-modules/hyprshell.nix
