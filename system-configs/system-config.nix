@@ -12,6 +12,7 @@
   programs.dconf.enable = true;
   services.lorri.enable = true;
   environment.systemPackages = with pkgs; [
+    claude-code
     razergenie
     easyeffects
     libreoffice

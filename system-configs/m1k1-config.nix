@@ -11,10 +11,6 @@
       ./system-config.nix
     ];
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTR{idVendor}=="362d", ATTR{idProduct}=="0304", MODE="0666"
-  '';
-
   # Graphics Acceleration
   hardware.graphics = {
     enable = true;
@@ -26,7 +22,6 @@
   # programs.steam.gamescopeSession.enable = true; # Enable this if you want to use big picture mode
   programs.gamemode.enable = true;
   hardware.openrazer.enable = true;
-
   
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -78,6 +73,8 @@
   ];
   programs.hyprland.enable = true;
   programs.waybar.enable = true;
+  # services.xserver.desktopManager.cinnamon.enable = true;
+  # services.cinnamon.apps.enable = true;
 
   services.displayManager.ly = {
     enable = true;
