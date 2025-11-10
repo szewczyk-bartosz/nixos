@@ -12,6 +12,7 @@
   programs.dconf.enable = true;
   services.lorri.enable = true;
   environment.systemPackages = with pkgs; [
+    google-chrome
     claude-code
     razergenie
     easyeffects
