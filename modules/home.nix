@@ -4,7 +4,7 @@
 	home.username = "cheryllamb";
 	home.homeDirectory = "/home/cheryllamb";
 
-	home.stateVersion = 26.05;
+	home.stateVersion = "26.05";
 	home.packages = with pkgs; [ cowsay ];
 
 	programs.git = {
