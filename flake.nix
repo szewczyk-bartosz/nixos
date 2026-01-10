@@ -10,7 +10,7 @@
     {
       nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ]; #TODO add the main system config
+        modules = [ modules/m1k1-system-config.nix ];
       };
 
     };
