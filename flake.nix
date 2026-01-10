@@ -6,9 +6,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+		
+		mikoshi-vim = {
+			#url = "github:szewczyk-bartosz/mikoshi-neovim";
+			url = "path:/home/cheryllamb/mikoshi-neovim";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, mikoshi-vim }:
     let
       system = "x86_64-linux";
     in
@@ -17,6 +23,7 @@
         inherit system;
         modules = [
           modules/m1k1-system-config.nix
+					mikoshi-vim.nixosModules.default
 
           home-manager.nixosModules.home-manager 
           {
