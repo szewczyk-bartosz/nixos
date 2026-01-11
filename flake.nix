@@ -29,10 +29,16 @@
         mikoshi-vim.nixosModules.default
 
         home-manager.nixosModules.home-manager
+
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.cheryllamb = import ./modules/home.nix;
+          home-manager.users.cheryllamb = {
+            home.stateVersion = "26.05";
+            imports = [
+              ./modules/home.nix
+            ];
+          };
         }
       ];
     };

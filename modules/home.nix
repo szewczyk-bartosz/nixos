@@ -6,8 +6,16 @@
   home.username = "cheryllamb";
   home.homeDirectory = "/home/cheryllamb";
 
-  home.stateVersion = "26.05";
   home.packages = with pkgs; [cowsay];
+
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "iosevka nerd font";
+      size = 14;
+      package = pkgs.nerd-fonts.iosevka;
+    };
+  };
 
   programs.git = {
     enable = true;
