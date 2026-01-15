@@ -22,6 +22,22 @@
   }: let
     system = "x86_64-linux";
   in {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        modules/nixos-config.nix
+        mikoshi-vim.nixosModules.default
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.cheryllamb = {
+            home.stateVersion = "25.11";
+            imports = [./modules/home.nix];
+          };
+        }
+      ];
+    };
     nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
