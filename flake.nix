@@ -7,6 +7,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mikoshi = {
+      url = "path:../mikoshi/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     mikoshi-vim = {
       url = "github:szewczyk-bartosz/mikoshi-neovim";
       #url = "path:/home/cheryllamb/mikoshi-neovim";
@@ -17,6 +21,7 @@
   outputs = {
     self,
     nixpkgs,
+    mikoshi,
     home-manager,
     mikoshi-vim,
   }: let
@@ -32,7 +37,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.cheryllamb = {
-            home.stateVersion = "25.11";
+            home.stateVersion = "26.05";
             imports = [./modules/home.nix];
           };
         }
