@@ -8,7 +8,7 @@
     };
 
     mikoshi = {
-      url = "path:../mikoshi/";
+      url = "path:/home/cheryllamb/mikoshi/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mikoshi-vim = {
@@ -31,6 +31,7 @@
       inherit system;
       modules = [
         modules/nixos-config.nix
+        mikoshi.nixosModules.default
         mikoshi-vim.nixosModules.default
         home-manager.nixosModules.home-manager
         {
