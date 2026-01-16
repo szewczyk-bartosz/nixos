@@ -33,12 +33,15 @@
         modules/nixos-config.nix
         mikoshi.nixosModules.default
         mikoshi-vim.nixosModules.default
+        {
+          mikoshi.hyprland.enable = true;
+        }
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.cheryllamb = {
-            home.stateVersion = "26.05";
+            home.stateVersion = "25.11";
             imports = [./modules/home.nix];
           };
         }
