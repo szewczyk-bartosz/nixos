@@ -17,8 +17,6 @@
     isNormalUser = true;
     extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-      tree
-      spotify
     ];
   };
   system.stateVersion = "25.11"; # Did you read the comment?
