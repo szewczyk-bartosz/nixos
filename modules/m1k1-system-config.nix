@@ -41,6 +41,9 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+  services.gnome.core-apps.enable = false;
+  programs.seahorse.enable = true;
+  programs.evince.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "gb";
@@ -89,6 +92,9 @@
     chromium
     brave
     gsettings-desktop-schemas
+    gnome-characters
+    gnome-calculator
+    loupe
   ];
   services.flatpak.enable = true;
   environment.variables = {
