@@ -5,20 +5,6 @@
 }: {
   home.username = "cheryllamb";
   home.homeDirectory = "/home/cheryllamb";
-
-  home.packages = with pkgs; [cowsay];
-
-  programs.neovide.enable = true;
-
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "iosevka nerd font";
-      size = 14;
-      package = pkgs.nerd-fonts.iosevka;
-    };
-  };
-
   programs.git = {
     enable = true;
     settings.user = {
