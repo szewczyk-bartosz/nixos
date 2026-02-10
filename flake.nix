@@ -7,6 +7,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mikoshi = {
+      url = "github:szewczyk-bartosz/mikoshi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     mikoshi-vim = {
       url = "github:szewczyk-bartosz/mikoshi-neovim";
       #url = "path:/home/cheryllamb/mikoshi-neovim";
@@ -18,10 +22,28 @@
     self,
     nixpkgs,
     home-manager,
+    mikoshi,
     mikoshi-vim,
   }: let
     system = "x86_64-linux";
   in {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        modules/nixos-hardware.nix
+        mikoshi.modules.nixos.gnome
+        mikoshi-vim.nixosModules.default
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.cheryllamb = {
+            home.stateVersion = "26.05";
+            imports = [./modules/home.nix];
+          };
+        }
+      ];
+    };
     nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
