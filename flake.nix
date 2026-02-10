@@ -30,7 +30,7 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        modules/nixos-hardware.nix
+        modules/nixos-system-config.nix
         mikoshi.modules.nixos.gnome
         mikoshi-vim.nixosModules.default
         home-manager.nixosModules.home-manager
