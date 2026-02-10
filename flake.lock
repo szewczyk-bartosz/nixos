@@ -66,14 +66,17 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1768160590,
-        "narHash": "sha256-vG/Y1b6lkZmUuE/g7uLXYkgcPX8Tv41E2KRHXMETWQU=",
-        "path": "/home/cheryllamb/mikoshi-neovim",
-        "type": "path"
+        "lastModified": 1768160815,
+        "narHash": "sha256-bwY8zcfqRr1tu/o2eY0eHDcVlVJNtuBxwKkCU7CRx2g=",
+        "owner": "szewczyk-bartosz",
+        "repo": "mikoshi-neovim",
+        "rev": "064ee53fa91ec1893a1da853ea7add6040279742",
+        "type": "github"
       },
       "original": {
-        "path": "/home/cheryllamb/mikoshi-neovim",
-        "type": "path"
+        "owner": "szewczyk-bartosz",
+        "repo": "mikoshi-neovim",
+        "type": "github"
       }
     },
     "mnw": {
@@ -141,11 +144,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1768135144,
-        "narHash": "sha256-c9q5pGqfVEcxqXLmjug0skKdE4IT4zFKbQdEzXGHTVY=",
+        "lastModified": 1768307761,
+        "narHash": "sha256-Y4Y5wa75ft5Ix7ydiZc5aMzfQdAuxOsC2mSQ+qWWOHU=",
         "owner": "NotAShelf",
         "repo": "nvf",
-        "rev": "c7fe3c1818d01f71f2e1a0ec9b8e1c6a7e5c171b",
+        "rev": "b985468159a02513773b3f9256bde9c85c5d8626",
         "type": "github"
       },
       "original": {

@@ -8,6 +8,8 @@
 
   home.packages = with pkgs; [cowsay];
 
+  programs.neovide.enable = true;
+
   programs.kitty = {
     enable = true;
     font = {
