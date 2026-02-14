@@ -8,13 +8,14 @@
     };
 
     mikoshi = {
-      url = "github:szewczyk-bartosz/mikoshi";
+      # url = "github:szewczyk-bartosz/mikoshi";
+      url = "path:/home/cheryllamb/mikoshi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mikoshi-vim = {
       url = "github:szewczyk-bartosz/mikoshi-neovim";
       #url = "path:/home/cheryllamb/mikoshi-neovim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -31,7 +32,7 @@
       inherit system;
       modules = [
         modules/nixos-system-config.nix
-        mikoshi.modules.nixos.gnome
+        mikoshi.modules.nixos.gnomoshi
         mikoshi-vim.nixosModules.default
         home-manager.nixosModules.home-manager
         {
