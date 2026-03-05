@@ -49,10 +49,9 @@
       inherit system;
       modules = [
         modules/m1k1-system-config.nix
+        mikoshi.modules.nixos.gnomoshi
         mikoshi-vim.nixosModules.default
-
         home-manager.nixosModules.home-manager
-
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
