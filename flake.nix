@@ -48,11 +48,22 @@
     nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        modules/m1k1-system-config.nix
+        modules/m1k1-hardware.nix
         mikoshi.modules.nixos.gnomoshi
         mikoshi-vim.nixosModules.default
         home-manager.nixosModules.home-manager
         {
+          # Config file flattened
+          boot.loader.systemd-boot.enable = true;
+          boot.loader.efi.canTouchEfiVariables = true;
+          networking.hostName = "m1k1";
+          users.users.cheryllamb = {
+            isNormalUser = true;
+            extraGroups = ["wheel"];
+          };
+          system.stateVersion = "25.11";
+          nix.settings.experimental-features = ["nix-command" "flakes"];
+
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.cheryllamb = {
