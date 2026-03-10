@@ -12,11 +12,6 @@
       url = "path:/home/cheryllamb/mikoshi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mikoshi-vim = {
-      url = "github:szewczyk-bartosz/mikoshi-neovim";
-      #url = "path:/home/cheryllamb/mikoshi-neovim";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -59,7 +54,7 @@
           networking.hostName = "m1k1";
           users.users.cheryllamb = {
             isNormalUser = true;
-            extraGroups = ["wheel"];
+            extraGroups = ["wheel" "gamemode"];
           };
           system.stateVersion = "25.11";
           nix.settings.experimental-features = ["nix-command" "flakes"];
