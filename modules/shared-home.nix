@@ -1,10 +1,7 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   home.username = "cheryllamb";
   home.homeDirectory = "/home/cheryllamb";
+
   programs.git = {
     enable = true;
     settings.user = {
