@@ -27,7 +27,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOWIO068BP8YipXaSHkjJL/xzyv2PBfveoXt5Z9GsSKM cheryllamb@m1k1"
     ];
   };
-  nix.settings.truster-users = ["root" "cheryllamb"];
+  nix.settings.trusted-users = ["root" "cheryllamb"];
 
   system.stateVersion = "25.11";
 }
