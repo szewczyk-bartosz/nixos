@@ -21,6 +21,7 @@
     extraGroups = ["wheel"];
     packages = with pkgs; [
       git
+      python313
     ];
     initialHashedPassword = "$y$j9T$Gr446qulQ0U51PTb0aJog1$UTxOM8SaTVsk2zKt0aSST8IXfdNeDj5rPzVwG8.BBH2";
     openssh.authorizedKeys.keys = [
