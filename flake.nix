@@ -45,7 +45,7 @@
     };
 
     nixosConfigurations.t3kl4 = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
+      system = "x86_64-linux";
       modules = [
         disko.nixosModules.disko
         ./hosts/t3kl4
