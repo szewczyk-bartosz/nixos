@@ -13,8 +13,8 @@
     };
 
     mikoshi = {
-      # url = "github:szewczyk-bartosz/mikoshi";
-      url = "path:/home/cheryllamb/mikoshi";
+      url = "github:szewczyk-bartosz/mikoshi";
+      # url = "path:/home/cheryllamb/mikoshi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
