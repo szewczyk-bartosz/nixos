@@ -145,14 +145,17 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1773193451,
-        "narHash": "sha256-ROsY7HaFRG34dHuLofELHsoaISuzd/m/3nudeIGbQmg=",
-        "path": "/home/cheryllamb/mikoshi",
-        "type": "path"
+        "lastModified": 1773179322,
+        "narHash": "sha256-eMuH9tggRCxuzwWLVX5sBLQh1LePINS1DWS2pHWqMzA=",
+        "owner": "szewczyk-bartosz",
+        "repo": "mikoshi",
+        "rev": "b5b225e3555c465666547a9a4a7cf5f7a2248af8",
+        "type": "github"
       },
       "original": {
-        "path": "/home/cheryllamb/mikoshi",
-        "type": "path"
+        "owner": "szewczyk-bartosz",
+        "repo": "mikoshi",
+        "type": "github"
       }
     },
     "mikoshi-neovim": {
