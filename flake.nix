@@ -48,6 +48,7 @@
       system = "x86_64-linux";
       modules = [
         disko.nixosModules.disko
+        mikoshi.modules.nixos.neovim
         ./hosts/t3kl4
       ];
     };
