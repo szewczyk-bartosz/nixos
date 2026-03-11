@@ -52,5 +52,10 @@
         ./hosts/t3kl4
       ];
     };
+    devShells.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
+      shellHook = ''
+        alias deploy-t3kl4="sudo nixos-rebuild switch --flake .#t3kl4 --target-host cheryllamb@195.201.32.53 --sudo --ask-sudo-password"
+      '';
+    };
   };
 }
