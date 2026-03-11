@@ -7,6 +7,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     mikoshi = {
       # url = "github:szewczyk-bartosz/mikoshi";
       url = "path:/home/cheryllamb/mikoshi";
@@ -19,6 +24,7 @@
     nixpkgs,
     home-manager,
     mikoshi,
+    disko,
   }: {
     nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -35,6 +41,14 @@
         home-manager.nixosModules.home-manager
         mikoshi.modules.nixos.gnomoshi
         ./hosts/k1v1
+      ];
+    };
+
+    nixosConfigurations.t3kl4 = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        disko.nixosModules.disko
+        ./hosts/t3kl4
       ];
     };
   };
