@@ -47,8 +47,10 @@
     nixosConfigurations.t3kl4 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        home-manager.nixosModules.home-manager
         disko.nixosModules.disko
         mikoshi.modules.nixos.neovim
+        mikoshi.modules.nixos.tmux
         ./hosts/t3kl4
       ];
     };
