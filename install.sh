@@ -8,5 +8,5 @@ fi
 
 HOST=$1
 
-sudo nix run github:nix-community/disko -- --mode disko --flake ".#${HOST}"
+sudo nix run --extra-experimental-features "nix-command flakes" github:nix-community/disko -- --mode disko --flake ".#${HOST}"
 sudo nixos-install --flake ".#${HOST}"
