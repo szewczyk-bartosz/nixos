@@ -4,6 +4,7 @@
     ./disk.nix
     ./hardware.nix
     ../../modules/shared-system.nix
+    ../../modules/defaultApps.nix
   ];
 
   home-manager = {
