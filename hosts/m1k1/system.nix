@@ -8,10 +8,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "m1k1";
-
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
   users.users.cheryllamb = {
     isNormalUser = true;
-    extraGroups = ["wheel" "gamemode"];
+    extraGroups = ["wheel" "gamemode" "libvirtd"];
     packages = with pkgs; [];
   };
 
