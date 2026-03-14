@@ -75,11 +75,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773025010,
-        "narHash": "sha256-khlHllTsovXgT2GZ0WxT4+RvuMjNeR5OW0UYeEHPYQo=",
+        "lastModified": 1773506317,
+        "narHash": "sha256-qWKbLUJpavIpvOdX1fhHYm0WGerytFHRoh9lVck6Bh0=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "7b9f7f88ab3b339f8142dc246445abb3c370d3d3",
+        "rev": "878ec37d6a8f52c6c801d0e2a2ad554c75b9353c",
         "type": "github"
       },
       "original": {
@@ -251,14 +251,17 @@
         "stylix": "stylix"
       },
       "locked": {
-        "lastModified": 1773451681,
-        "narHash": "sha256-q9Oq1j6PAeGvYttyg4DgIK0azziEWKIIYRjpzi/9ZVE=",
-        "path": "/home/cheryllamb/mikoshi",
-        "type": "path"
+        "lastModified": 1773529789,
+        "narHash": "sha256-5m8rOGArAykmsA+7n0TXo/6RUPrbRHGBSStg8x6WaUc=",
+        "owner": "szewczyk-bartosz",
+        "repo": "mikoshi",
+        "rev": "ba9512b43557f55a65fbdeb4d5c7e6a7ab5fb256",
+        "type": "github"
       },
       "original": {
-        "path": "/home/cheryllamb/mikoshi",
-        "type": "path"
+        "owner": "szewczyk-bartosz",
+        "repo": "mikoshi",
+        "type": "github"
       }
     },
     "mikoshi-neovim": {
@@ -351,11 +354,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1773282481,
-        "narHash": "sha256-b/GV2ysM8mKHhinse2wz+uP37epUrSE+sAKXy/xvBY4=",
+        "lastModified": 1773389992,
+        "narHash": "sha256-wvfdLLWJ2I9oEpDd9PfMA8osfIZicoQ5MT1jIwNs9Tk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fe416aaedd397cacb33a610b33d60ff2b431b127",
+        "rev": "c06b4ae3d6599a672a6210b7021d699c351eebda",
         "type": "github"
       },
       "original": {
