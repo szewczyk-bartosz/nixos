@@ -13,8 +13,8 @@
     };
 
     mikoshi = {
-      # url = "github:szewczyk-bartosz/mikoshi";
-      url = "path:/home/cheryllamb/mikoshi";
+      url = "github:szewczyk-bartosz/mikoshi";
+      # url = "path:/home/cheryllamb/mikoshi";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
@@ -31,7 +31,24 @@
       system = "x86_64-linux";
       modules = [
         mikoshi.nixosModules.gnomoshi
+        {
+          mikoshi.stylix.base16Scheme = "purple-dream-proto";
+          # mikoshi.stylix.base16Scheme = "dark-violet";
+          # mikoshi.stylix.base16Scheme = "mocha-dim";
+          # mikoshi.stylix.base16Scheme = "catppuccin-mocha";
+          # mikoshi.stylix.base16Scheme = "catppuccin-macchiato";
+          # tarot is nice
+        }
         ./hosts/m1k1
+      ];
+    };
+
+    nixosConfigurations.pr1mk4 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        home-manager.nixosModules.home-manager
+        mikoshi.modules.nixos.gnomoshi
+        ./hosts/pr1mk4
       ];
     };
 
