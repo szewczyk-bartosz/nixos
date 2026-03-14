@@ -3,7 +3,6 @@
 
   environment.systemPackages = with pkgs; [
     chromium
-    ghostty
     brave
     firefox
     claude-code
