@@ -4,7 +4,7 @@
     ./system.nix
     ../../modules/shared-system.nix
     ../../modules/defaultApps.nix
-    ../../modules/devTools.nix.nix
+    ../../modules/devTools.nix
   ];
 
   home-manager = {
