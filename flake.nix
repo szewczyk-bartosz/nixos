@@ -13,9 +13,10 @@
     };
 
     mikoshi = {
-      url = "github:szewczyk-bartosz/mikoshi";
-      # url = "path:/home/cheryllamb/mikoshi";
+      # url = "github:szewczyk-bartosz/mikoshi";
+      url = "path:/home/cheryllamb/mikoshi";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
   };
 
@@ -29,8 +30,7 @@
     nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        home-manager.nixosModules.home-manager
-        mikoshi.modules.nixos.gnomoshi
+        mikoshi.nixosModules.gnomoshi
         ./hosts/m1k1
       ];
     };
