@@ -47,7 +47,7 @@
       system = "x86_64-linux";
       modules = [
         home-manager.nixosModules.home-manager
-        mikoshi.modules.nixos.gnomoshi
+        mikoshi.nixosModules.mikoshiFull
         ./hosts/pr1mk4
       ];
     };
