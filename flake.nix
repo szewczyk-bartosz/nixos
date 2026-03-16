@@ -46,8 +46,10 @@
     nixosConfigurations.pr1mk4 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        home-manager.nixosModules.home-manager
         mikoshi.nixosModules.mikoshiFull
+        {
+          mikoshi.stylix.base16Scheme = "catppuccin-mocha";
+        }
         ./hosts/pr1mk4
       ];
     };

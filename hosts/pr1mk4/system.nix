@@ -23,5 +23,7 @@
   hardware.graphics.enable = true;
   programs.gamemode.enable = true;
 
+  nix.settings.trusted-users = ["root" "cheryllamb"];
+
   system.stateVersion = "25.11";
 }
