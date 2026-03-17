@@ -240,9 +240,6 @@
     "mikoshi": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "home-manager": [
-          "home-manager"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -250,11 +247,11 @@
         "stylix": "stylix"
       },
       "locked": {
-        "lastModified": 1773627315,
-        "narHash": "sha256-3InDvMxLU3YtKGr1bFKdC50bN7hQikOriR9+rvrX94E=",
+        "lastModified": 1773780403,
+        "narHash": "sha256-XvNel3RO0UC2zermD5xP5FCTpHEQKzZ6liZLCOenF3I=",
         "owner": "szewczyk-bartosz",
         "repo": "mikoshi",
-        "rev": "b57206e01d95e6faf856ac0f2d674a24d7df2512",
+        "rev": "09e3344b509f05961a3d9d1336a322b801b208db",
         "type": "github"
       },
       "original": {

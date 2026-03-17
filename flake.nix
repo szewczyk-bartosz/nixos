@@ -16,7 +16,6 @@
       url = "github:szewczyk-bartosz/mikoshi";
       # url = "path:/home/cheryllamb/mikoshi";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
   };
 
@@ -31,13 +30,9 @@
       system = "x86_64-linux";
       modules = [
         mikoshi.nixosModules.gnomoshi
+        home-manager.nixosModules.home-manager
         {
           mikoshi.stylix.base16Scheme = "purple-dream-proto";
-          # mikoshi.stylix.base16Scheme = "dark-violet";
-          # mikoshi.stylix.base16Scheme = "mocha-dim";
-          # mikoshi.stylix.base16Scheme = "catppuccin-mocha";
-          # mikoshi.stylix.base16Scheme = "catppuccin-macchiato";
-          # tarot is nice
         }
         ./hosts/m1k1
       ];
@@ -47,6 +42,7 @@
       system = "x86_64-linux";
       modules = [
         mikoshi.nixosModules.mikoshiFull
+        home-manager.nixosModules.home-manager
         {
           mikoshi.stylix.base16Scheme = "catppuccin-mocha";
         }
@@ -77,11 +73,13 @@
     nixosConfigurations.virt = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        home-manager.nixosModules.home-manager
         mikoshi.nixosModules.gnomoshi
         disko.nixosModules.disko
         ./hosts/virt
       ];
     };
+
     devShells.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
       shellHook = ''
         alias deploy-t3kl4="sudo nixos-rebuild switch --flake .#t3kl4 --target-host cheryllamb@195.201.32.53 --sudo --ask-sudo-password"
