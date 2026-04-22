@@ -9,5 +9,6 @@
     discord
     keepassxc
     spotify
+    ffmpeg
   ];
 }

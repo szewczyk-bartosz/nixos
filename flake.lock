@@ -247,11 +247,11 @@
         "stylix": "stylix"
       },
       "locked": {
-        "lastModified": 1773780403,
-        "narHash": "sha256-XvNel3RO0UC2zermD5xP5FCTpHEQKzZ6liZLCOenF3I=",
+        "lastModified": 1774111833,
+        "narHash": "sha256-lw9mNmUl3pfInTR8pa1dtFxVc7XjX4FnRwz71up4iGQ=",
         "owner": "szewczyk-bartosz",
         "repo": "mikoshi",
-        "rev": "09e3344b509f05961a3d9d1336a322b801b208db",
+        "rev": "4619f7386f5fbaf97e0c687939fd8a990f2d4a48",
         "type": "github"
       },
       "original": {
