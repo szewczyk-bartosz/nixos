@@ -54,7 +54,7 @@
       system = "x86_64-linux";
       modules = [
         home-manager.nixosModules.home-manager
-        mikoshi.modules.nixos.gnomoshi
+        mikoshi.nixosModules.gnomoshi
         ./hosts/k1v1
       ];
     };
@@ -64,8 +64,8 @@
       modules = [
         home-manager.nixosModules.home-manager
         disko.nixosModules.disko
-        mikoshi.modules.nixos.neovim
-        mikoshi.modules.nixos.tmux
+        mikoshi.nixosModules.neovim
+        mikoshi.nixosModules.tmux
         ./hosts/t3kl4
       ];
     };
