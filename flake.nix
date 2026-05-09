@@ -30,9 +30,11 @@
       system = "x86_64-linux";
       modules = [
         mikoshi.nixosModules.gnomoshi
+        mikoshi.nixosModules.bmd
         home-manager.nixosModules.home-manager
         {
-          mikoshi.stylix.base16Scheme = "purple-dream-proto";
+          mikoshi.stylix.base16Scheme = "catppuccin-mocha";
+          mikoshi.gnome.kb = ["gb" "ua" "pl"];
         }
         ./hosts/m1k1
       ];
@@ -41,7 +43,7 @@
     nixosConfigurations.pr1mk4 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        mikoshi.nixosModules.mikoshiFull
+        mikoshi.nixosModules.gnomoshi
         home-manager.nixosModules.home-manager
         {
           mikoshi.stylix.base16Scheme = "catppuccin-mocha";
@@ -65,6 +67,7 @@
         home-manager.nixosModules.home-manager
         disko.nixosModules.disko
         mikoshi.nixosModules.neovim
+        mikoshi.nixosModules.bmd
         mikoshi.nixosModules.tmux
         ./hosts/t3kl4
       ];
@@ -82,7 +85,8 @@
 
     devShells.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
       shellHook = ''
-        alias deploy-t3kl4="sudo nixos-rebuild switch --flake .#t3kl4 --target-host cheryllamb@195.201.32.53 --sudo --ask-sudo-password"
+        [ -f .env ] && source .env
+        alias deploy-t3kl4="nixos-rebuild switch --flake .#t3kl4 --target-host cheryllamb@$T3KL4_IP --sudo --ask-sudo-password"
       '';
     };
   };

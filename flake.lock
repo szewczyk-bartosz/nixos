@@ -68,6 +68,27 @@
         "type": "github"
       }
     },
+    "bmd": {
+      "inputs": {
+        "nixpkgs": [
+          "mikoshi",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778168264,
+        "narHash": "sha256-vqa+bXi+I+ojW9pxN4YAfAHB/LussgPa5bPPDafxEbM=",
+        "owner": "szewczyk-bartosz",
+        "repo": "my-markdown-lang",
+        "rev": "3fd259e3bc4a3401d1a1a5f4bc13ad5ef72e90d0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "szewczyk-bartosz",
+        "repo": "my-markdown-lang",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -237,6 +258,7 @@
     },
     "mikoshi": {
       "inputs": {
+        "bmd": "bmd",
         "flake-parts": "flake-parts",
         "nixpkgs": [
           "nixpkgs"
@@ -245,11 +267,11 @@
         "stylix": "stylix"
       },
       "locked": {
-        "lastModified": 1777910347,
-        "narHash": "sha256-rE16TMX0PUKlG0cCWT2lmEZEfMM+GsH8Gmm06yy+tuM=",
+        "lastModified": 1778169033,
+        "narHash": "sha256-L73vtd7PD7POjpWaxw6tJgmQWG/s8R84A5URXwWoRhA=",
         "owner": "szewczyk-bartosz",
         "repo": "mikoshi",
-        "rev": "5b2c84fab745a69bd9c3d7c829b94d167289f215",
+        "rev": "ac0aaefa0a259c1b9ae1b4e9ff7a53cbe09a8c61",
         "type": "github"
       },
       "original": {
