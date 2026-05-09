@@ -12,6 +12,17 @@
     openrazer-daemon
     razergenie
   ];
+  services.syncthing = {
+    enable = true;
+    user = "cheryllamb";
+    guiAddress = "m1k1:8384";
+    openDefaultPorts = true;
+    dataDir = "/home/cheryllamb/.syncthing/data";
+    configDir = "/home/cheryllamb/.syncthing/config";
+    settings.folders."engram-raw" = {
+      path = "/home/cheryllamb/engram-data/raw";
+    };
+  };
 
   networking.hostName = "m1k1";
   virtualisation.libvirtd.enable = true;
