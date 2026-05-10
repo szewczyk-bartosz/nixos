@@ -17,7 +17,7 @@
   services.syncthing = {
     enable = true;
     user = "cheryllamb";
-    guiAddress = "t3kl4:8384";
+    guiAddress = "127.0.0.1:8384";
     openDefaultPorts = true;
     dataDir = "/home/cheryllamb/.syncthing/data";
     configDir = "/home/cheryllamb/.syncthing/config";
