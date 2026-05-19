@@ -17,6 +17,11 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  services.scx.enable = true;
+  services.scx.scheduler = "scx_bpfland";
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "ext4";
