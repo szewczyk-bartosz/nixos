@@ -23,6 +23,8 @@
     };
   };
 
+  services.scx.enable = true;
+  services.scx.scheduler = "scx_bpfland";
   networking.hostName = "m1k1";
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
