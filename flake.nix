@@ -29,7 +29,7 @@
     nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        mikoshi.nixosModules.gnomoshi
+        mikoshi.nixosModules.mikoshi-gnome
         mikoshi.nixosModules.bmd
         home-manager.nixosModules.home-manager
         {
@@ -43,7 +43,7 @@
     nixosConfigurations.pr1mk4 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        mikoshi.nixosModules.gnomoshi
+        mikoshi.nixosModules.mikoshi-gnome
         home-manager.nixosModules.home-manager
         {
           mikoshi.stylix.base16Scheme = "catppuccin-mocha";
@@ -56,7 +56,7 @@
       system = "x86_64-linux";
       modules = [
         home-manager.nixosModules.home-manager
-        mikoshi.nixosModules.gnomoshi
+        mikoshi.nixosModules.mikoshi-gnome
         ./hosts/k1v1
       ];
     };
@@ -77,7 +77,7 @@
       system = "x86_64-linux";
       modules = [
         home-manager.nixosModules.home-manager
-        mikoshi.nixosModules.gnomoshi
+        mikoshi.nixosModules.mikoshi-gnome
         disko.nixosModules.disko
         ./hosts/virt
       ];
