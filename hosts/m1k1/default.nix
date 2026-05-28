@@ -2,6 +2,7 @@
   imports = [
     ./hardware.nix
     ./system.nix
+    ./disk.nix
     ../../modules/shared-system.nix
     ../../modules/defaultApps.nix
     ../../modules/devTools.nix

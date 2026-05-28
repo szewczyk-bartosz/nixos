@@ -13,8 +13,8 @@
     };
 
     mikoshi = {
-      # url = "github:szewczyk-bartosz/mikoshi";
-      url = "path:/home/cheryllamb/mikoshi";
+      url = "github:szewczyk-bartosz/mikoshi";
+      # url = "path:/home/cheryllamb/mikoshi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -31,6 +31,7 @@
       modules = [
         mikoshi.nixosModules.mikoshi-hyprland
         mikoshi.nixosModules.bmd
+        disko.nixosModules.disko
         home-manager.nixosModules.home-manager
         {
           mikoshi.stylix.base16Scheme = "catppuccin-mocha";
