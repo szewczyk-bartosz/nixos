@@ -10,5 +10,6 @@
     keepassxc
     spotify
     ffmpeg
+    telegram-desktop
   ];
 }

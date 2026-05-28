@@ -13,8 +13,8 @@
     };
 
     mikoshi = {
-      url = "github:szewczyk-bartosz/mikoshi";
-      # url = "path:/home/cheryllamb/mikoshi";
+      # url = "github:szewczyk-bartosz/mikoshi";
+      url = "path:/home/cheryllamb/mikoshi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -29,12 +29,14 @@
     nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        mikoshi.nixosModules.mikoshi-gnome
+        mikoshi.nixosModules.mikoshi-hyprland
         mikoshi.nixosModules.bmd
         home-manager.nixosModules.home-manager
         {
           mikoshi.stylix.base16Scheme = "catppuccin-mocha";
-          mikoshi.gnome.kb = ["gb" "ua" "pl"];
+          mikoshi.hyprland.monitors = ["DP-2,2560x1440@240,0x0,1"];
+          # mikoshi.hyprland.kb = ["gb" "ua" "pl"];
+          mikoshi.hyprland.kb = "gb,ua,pl";
         }
         ./hosts/m1k1
       ];
