@@ -76,16 +76,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1778168264,
-        "narHash": "sha256-vqa+bXi+I+ojW9pxN4YAfAHB/LussgPa5bPPDafxEbM=",
+        "lastModified": 1779749670,
+        "narHash": "sha256-fGJWnfXNS7mPXuLNU6PpXsPRwHSvWtwZl1ZK3EiGsTY=",
         "owner": "szewczyk-bartosz",
-        "repo": "my-markdown-lang",
-        "rev": "3fd259e3bc4a3401d1a1a5f4bc13ad5ef72e90d0",
+        "repo": "engramware",
+        "rev": "b61329995fbaef85eecd2ce7a1c10a3de448660d",
         "type": "github"
       },
       "original": {
         "owner": "szewczyk-bartosz",
-        "repo": "my-markdown-lang",
+        "repo": "engramware",
         "type": "github"
       }
     },
@@ -267,11 +267,11 @@
         "stylix": "stylix"
       },
       "locked": {
-        "lastModified": 1779283592,
-        "narHash": "sha256-2PzhfBatBTYYzsu4+LZem4wqNFj2XJUEv8f8aounO2c=",
+        "lastModified": 1779982614,
+        "narHash": "sha256-vtzkIApE8HJxIIUQxvDTWSzcRk50gcYL2zk2+oE5KOc=",
         "owner": "szewczyk-bartosz",
         "repo": "mikoshi",
-        "rev": "a076c9d0dd8747abf4364568c02ceeb56afb76d7",
+        "rev": "1dc77cab85ce15d5ccad5651c270e3e8ddb47aa4",
         "type": "github"
       },
       "original": {
