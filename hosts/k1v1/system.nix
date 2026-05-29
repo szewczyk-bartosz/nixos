@@ -9,6 +9,9 @@
 
   networking.hostName = "k1v1";
 
+  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "Europe/London";
+
   users.users.cheryllamb = {
     isNormalUser = true;
     extraGroups = ["wheel" "gamemode"];

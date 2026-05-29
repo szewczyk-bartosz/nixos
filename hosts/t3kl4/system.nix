@@ -6,6 +6,9 @@
 }: {
   boot.loader.grub.enable = true;
   networking.hostName = "t3kl4";
+
+  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "Europe/London";
   services.openssh = {
     enable = true;
     settings = {

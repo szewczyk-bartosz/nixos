@@ -6,6 +6,9 @@
 }: {
   boot.loader.grub.enable = true;
   networking.hostName = "virt";
+
+  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "Europe/London";
   swapDevices = [
     {
       device = "/swapfile";

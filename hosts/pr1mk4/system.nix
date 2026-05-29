@@ -9,6 +9,9 @@
 
   networking.hostName = "pr1mk4";
 
+  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "Europe/London";
+
   services.openssh.enable = true;
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOWIO068BP8YipXaSHkjJL/xzyv2PBfveoXt5Z9GsSKM cheryllamb@m1k1"

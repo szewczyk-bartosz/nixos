@@ -10,6 +10,7 @@
   environment.systemPackages = with pkgs; [
     openrazer-daemon
     razergenie
+    prismlauncher
   ];
   services.syncthing = {
     enable = true;
@@ -26,6 +27,9 @@
   services.scx.enable = true;
   services.scx.scheduler = "scx_bpfland";
   networking.hostName = "m1k1";
+
+  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "Europe/London";
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   users.users.cheryllamb = {
