@@ -11,6 +11,7 @@
     rustfmt
     maven
     jdk
-    python313
+    (python313.withPackages (python-pkgs: with python-pkgs; [playwright-stealth playwright beautifulsoup4 requests]))
+    playwright
   ];
 }
