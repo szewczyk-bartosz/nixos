@@ -1,9 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -13,10 +11,11 @@
     };
 
     mikoshi = {
-      # url = "github:szewczyk-bartosz/mikoshi";
-      url = "path:/home/cheryllamb/mikoshi";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:szewczyk-bartosz/mikoshi";
+      # url = "path:/home/cheryllamb/mikoshi";
     };
+
+    nixpkgs.follows = "mikoshi/nixpkgs";
   };
 
   outputs = {
@@ -32,6 +31,7 @@
         mikoshi.nixosModules.mikoshi-hyprland
         mikoshi.nixosModules.bmd
         disko.nixosModules.disko
+        mikoshi.nixosModules.steam
         home-manager.nixosModules.home-manager
         {
           mikoshi.stylix.base16Scheme = "catppuccin-mocha";
