@@ -79,4 +79,8 @@
       };
     };
   };
+  systemd.tmpfiles.rules = [
+    "d /home/cheryllamb/storage 0755 cheryllamb users - -"
+    "d /storage 0755 cheryllamb users - -"
+  ];
 }
