@@ -80,9 +80,16 @@
       system = "x86_64-linux";
       modules = [
         home-manager.nixosModules.home-manager
-        mikoshi.nixosModules.mikoshi-hyprland
         disko.nixosModules.disko
         ./hosts/virt
+
+        mikoshi.nixosModules.ghostty
+        mikoshi.nixosModules.audio
+        mikoshi.nixosModules.fonts
+        mikoshi.nixosModules.icons
+        mikoshi.nixosModules.neovim
+        mikoshi.nixosModules.network
+        mikoshi.nixosModules.tmux
       ];
     };
 
