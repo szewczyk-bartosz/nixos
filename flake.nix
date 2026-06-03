@@ -29,16 +29,16 @@
       system = "x86_64-linux";
       modules = [
         mikoshi.nixosModules.mikoshi-hyprland
-        mikoshi.nixosModules.bmd
+        # mikoshi.nixosModules.bmd
         disko.nixosModules.disko
-        mikoshi.nixosModules.steam
+        # mikoshi.nixosModules.steam
+        mikoshi.nixosModules.network
         home-manager.nixosModules.home-manager
-        {
-          mikoshi.stylix.base16Scheme = "catppuccin-mocha";
-          mikoshi.hyprland.monitors = ["DP-2,2560x1440@240,0x0,1"];
-          # mikoshi.hyprland.kb = ["gb" "ua" "pl"];
-          mikoshi.hyprland.kb = "gb,ua,pl";
-        }
+        # {
+        #   mikoshi.stylix.base16Scheme = "catppuccin-mocha";
+        #   mikoshi.hyprland.monitors = ["DP-2,2560x1440@240,0x0,1"];
+        #   mikoshi.hyprland.kb = "gb,ua,pl";
+        # }
         ./hosts/m1k1
       ];
     };
@@ -80,7 +80,7 @@
       system = "x86_64-linux";
       modules = [
         home-manager.nixosModules.home-manager
-        mikoshi.nixosModules.mikoshi-gnome
+        mikoshi.nixosModules.mikoshi-hyprland
         disko.nixosModules.disko
         ./hosts/virt
       ];
