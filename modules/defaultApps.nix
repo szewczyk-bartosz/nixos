@@ -5,6 +5,7 @@
     chromium
     brave
     firefox
+    vlc
     claude-code
     discord
     keepassxc
