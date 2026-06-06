@@ -37,6 +37,7 @@
           mikoshi.stylix.base16Scheme = "catppuccin-mocha";
           mikoshi.hyprland.monitors = ["DP-2,2560x1440@240,0x0,1"];
           mikoshi.hyprland.kb = "gb,ua,pl";
+          mikoshi.hyprland.wallpaper = ./wallpapers/nixos.png;
         }
         ./hosts/m1k1
       ];
