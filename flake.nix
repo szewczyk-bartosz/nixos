@@ -58,8 +58,16 @@
     nixosConfigurations.k1v1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        mikoshi.nixosModules.mikoshi-hyprland
+        mikoshi.nixosModules.bmd
+        disko.nixosModules.disko
+        mikoshi.nixosModules.steam
         home-manager.nixosModules.home-manager
-        mikoshi.nixosModules.mikoshi-gnome
+        {
+          mikoshi.stylix.base16Scheme = "catppuccin-mocha";
+          mikoshi.hyprland.kb = "gb,ua,pl";
+          mikoshi.hyprland.wallpaper = ./wallpapers/nixos.png;
+        }
         ./hosts/k1v1
       ];
     };

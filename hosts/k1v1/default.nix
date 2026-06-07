@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware.nix
+    ./disk.nix
     ../../modules/shared-system.nix
     ../../modules/defaultApps.nix
     ../../modules/devTools.nix
@@ -26,6 +27,8 @@
     intel-vaapi-driver
     intel-compute-runtime
   ];
+
+  environment.systemPackages = with pkgs; [prismlauncher];
   programs.gamemode.enable = true;
   boot.kernel.sysctl."kernel.sched_itmt_enabled" = 1;
   environment.sessionVariables = {
@@ -33,14 +36,18 @@
     DXVK_ASYNC = "1";
   };
 
+  services.scx.enable = true;
+  services.scx.scheduler = "scx_bpfland";
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     users.cheryllamb = {
       home.stateVersion = "26.05";
+      programs.mangohud.enable = true;
       imports = [../../modules/shared-home.nix];
     };
   };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }
