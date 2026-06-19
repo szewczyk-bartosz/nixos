@@ -12,5 +12,6 @@
     spotify
     ffmpeg
     telegram-desktop
+    bolt-launcher
   ];
 }
