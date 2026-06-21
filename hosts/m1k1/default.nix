@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  glint-ctl = pkgs.writeShellScriptBin "glint-ctl" ''
+    printf '%s\n' "$1" | ${pkgs.socat}/bin/socat - "UNIX-CONNECT:''${XDG_RUNTIME_DIR}/glint.sock"
+  '';
+in {
   imports = [
     ./hardware.nix
     ./disk.nix
@@ -7,6 +11,7 @@
     ../../modules/devTools.nix
   ];
 
+  programs.ydotool.enable = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.openrazer.enable = true;
@@ -14,6 +19,8 @@
     openrazer-daemon
     razergenie
     prismlauncher
+    glint-ctl
+    wlrctl
   ];
   services.syncthing = {
     enable = true;
@@ -37,7 +44,7 @@
   programs.virt-manager.enable = true;
   users.users.cheryllamb = {
     isNormalUser = true;
-    extraGroups = ["wheel" "openrazer" "gamemode" "libvirtd"];
+    extraGroups = ["wheel" "ydotool" "openrazer" "gamemode" "libvirtd"];
     packages = with pkgs; [];
   };
 
@@ -47,6 +54,7 @@
     users.cheryllamb = {
       home.stateVersion = "26.05";
       programs.mangohud.enable = true;
+      wayland.windowManager.hyprland.settings.bindn = [", F12, exec, glint-ctl toggle"];
       imports = [../../modules/shared-home.nix];
     };
   };
