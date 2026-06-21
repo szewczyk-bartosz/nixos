@@ -44,7 +44,7 @@ in {
   programs.virt-manager.enable = true;
   users.users.cheryllamb = {
     isNormalUser = true;
-    extraGroups = ["wheel" "ydotool" "openrazer" "gamemode" "libvirtd"];
+    extraGroups = ["wheel" "openrazer" "gamemode" "libvirtd"];
     packages = with pkgs; [];
   };
 
