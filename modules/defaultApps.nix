@@ -4,6 +4,8 @@
   environment.systemPackages = with pkgs; [
     chromium
     brave
+    zip
+    unzip
     firefox
     vlc
     claude-code
