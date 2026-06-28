@@ -1,6 +1,8 @@
 {pkgs, ...}: let
-  glint-ctl = pkgs.writeShellScriptBin "glint-ctl" ''
-    printf '%s\n' "$1" | ${pkgs.socat}/bin/socat - "UNIX-CONNECT:''${XDG_RUNTIME_DIR}/glint.sock"
+  poe-trade = pkgs.writeShellScriptBin "poe-trade" ''
+    echo "Running POE Trade Wrapper Version 0.6 (clean)"
+    exec env XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 \
+      ${pkgs.awakened-poe-trade}/bin/awakened-poe-trade --ozone-platform=x11 "$@"
   '';
 in {
   imports = [
@@ -19,7 +21,7 @@ in {
     openrazer-daemon
     razergenie
     prismlauncher
-    glint-ctl
+    poe-trade
     wlrctl
   ];
   services.syncthing = {
@@ -54,7 +56,24 @@ in {
     users.cheryllamb = {
       home.stateVersion = "26.05";
       programs.mangohud.enable = true;
-      wayland.windowManager.hyprland.settings.bindn = [", F12, exec, glint-ctl toggle"];
+      wayland.windowManager.hyprland.settings = {
+        "exec-once" = [
+          "spotify"
+          "steam"
+        ];
+
+        windowrule = [
+          "match:class ^([Ss]potify)$, workspace special:music, float on, size 2200  1100, center on"
+          "match:class ^([Ss]team)$, workspace special:steam, float on, size 2200 1100, center on"
+          "no_blur on, match:class ^([Aa]wakened-poe-trade)$"
+          "match:class steam_app_.*, float on"
+        ];
+
+        bind = [
+          "$mainMod, S, togglespecialworkspace, music"
+          "$mainMod, W, togglespecialworkspace, steam"
+        ];
+      };
       imports = [../../modules/shared-home.nix];
     };
   };
