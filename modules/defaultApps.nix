@@ -13,5 +13,6 @@
     ffmpeg
     telegram-desktop
     bolt-launcher
+    rusty-path-of-building
   ];
 }
