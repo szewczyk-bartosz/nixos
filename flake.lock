@@ -266,14 +266,17 @@
         "stylix": "stylix"
       },
       "locked": {
-        "lastModified": 1782657568,
-        "narHash": "sha256-QR2tL3QvOMBK5yz1bJQOFg7Mkxnobyjg/YpY4MJt5G0=",
-        "path": "/home/cheryllamb/mikoshi",
-        "type": "path"
+        "lastModified": 1782676142,
+        "narHash": "sha256-YAzhrL3IxsLTuRECgWKXyZ/u2DnJp6e8GNNBY1F7kq0=",
+        "owner": "szewczyk-bartosz",
+        "repo": "mikoshi",
+        "rev": "727a2fbf0fb371c7ed5456e7fa28a43e156afc6b",
+        "type": "github"
       },
       "original": {
-        "path": "/home/cheryllamb/mikoshi",
-        "type": "path"
+        "owner": "szewczyk-bartosz",
+        "repo": "mikoshi",
+        "type": "github"
       }
     },
     "mnw": {
