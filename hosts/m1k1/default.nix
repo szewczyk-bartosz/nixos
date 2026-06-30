@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   poe-trade = pkgs.writeShellScriptBin "poe-trade" ''
     echo "Running POE Trade Wrapper Version 0.6 (clean)"
     exec env XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 \
@@ -50,6 +54,22 @@ in {
     packages = with pkgs; [];
   };
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [libva-vdpau-driver];
+  };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "radeonsi";
+  };
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-vaapi
+    ];
+  };
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -61,6 +81,8 @@ in {
           "spotify"
           "steam"
         ];
+
+        # render.direct_scanout = lib.mkForce 1;
 
         windowrule = [
           "match:class ^([Ss]potify)$, workspace special:music, float on, size 2200  1100, center on"
