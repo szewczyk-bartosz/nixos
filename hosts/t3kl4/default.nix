@@ -9,6 +9,8 @@
   # BOOT
   boot.loader.grub.enable = true;
 
+  # MIKOSHI OPTIONS
+
   #SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [
     git
