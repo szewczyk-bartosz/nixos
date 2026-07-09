@@ -17,6 +17,7 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
+  hardware.openrazer.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

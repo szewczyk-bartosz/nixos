@@ -1,6 +1,6 @@
 {
   pkgs,
-  lib,
+  nixpkgs-unstable,
   ...
 }: let
   poe-trade = pkgs.writeShellScriptBin "poe-trade" ''
@@ -9,6 +9,7 @@
       ${pkgs.awakened-poe-trade}/bin/awakened-poe-trade --ozone-platform=x11 "$@"
   '';
 in {
+  system.stateVersion = "26.05";
   imports = [
     ./hardware.nix
     ./disk.nix
@@ -17,10 +18,11 @@ in {
     ../../modules/devTools.nix
   ];
 
-  programs.ydotool.enable = true;
+  # BOOT
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  hardware.openrazer.enable = true;
+
+  # SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [
     openrazer-daemon
     razergenie
@@ -28,57 +30,39 @@ in {
     poe-trade
     wlrctl
   ];
-  services.syncthing = {
-    enable = true;
-    user = "cheryllamb";
-    guiAddress = "127.0.0.1:8384";
-    openDefaultPorts = true;
-    dataDir = "/home/cheryllamb/.syncthing/data";
-    configDir = "/home/cheryllamb/.syncthing/config";
-    settings.folders."engram-raw" = {
-      path = "/home/cheryllamb/engram-data/raw";
-    };
-  };
 
-  services.scx.enable = true;
-  services.scx.scheduler = "scx_bpfland";
-  networking.hostName = "m1k1";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  time.timeZone = "Europe/London";
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  # USERS
   users.users.cheryllamb = {
     isNormalUser = true;
     extraGroups = ["wheel" "openrazer" "gamemode" "libvirtd"];
-    packages = with pkgs; [];
   };
 
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [libva-vdpau-driver];
-  };
-
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "radeonsi";
-  };
-
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-vaapi
-    ];
-  };
-
+  # HOME MANAGER
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
     users.cheryllamb = {
       home.stateVersion = "26.05";
       programs.mangohud.enable = true;
-      imports = [../../modules/shared-home.nix ./hyprland.nix];
+      imports = [
+        ../../modules/shared-home.nix
+      ];
     };
   };
 
-  system.stateVersion = "26.05";
+  # NETWORKING
+  networking.hostName = "m1k1";
+
+  # OTHER
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
+  # OVERLAYS
+  nixpkgs.overlays = [
+    (final: prev: {
+      claude-code =
+        (import nixpkgs-unstable {
+          system = prev.system;
+          config.allowUnfree = true;
+        }).claude-code;
+    })
+  ];
 }
