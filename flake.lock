@@ -301,11 +301,11 @@
         "stylix": "stylix"
       },
       "locked": {
-        "lastModified": 1783611525,
-        "narHash": "sha256-IZ8+MvKmJikCwDluPHgjh7OSzYD8kgaTopDD4w4IX6I=",
+        "lastModified": 1783612272,
+        "narHash": "sha256-Qjj+Uj2RtlXU0sl1Lfjegx20Fk4FBGESEZzJV1Jriec=",
         "owner": "szewczyk-bartosz",
         "repo": "mikoshi",
-        "rev": "326e98c5ec56f6449ce2ff1233752848fb506968",
+        "rev": "32c61bc0003ef54f099ae73eb0c847c3edf82fc1",
         "type": "github"
       },
       "original": {
