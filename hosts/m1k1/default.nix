@@ -23,8 +23,8 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
 
   # MIKOSHI OPTIONS
-  mikoshi.keyboardLayouts = ["gb" "pl" "ua"];
-  mikoshi.users = ["cheryllamb"];
+  mikoshi.meta.keyboardLayouts = ["gb" "pl" "ua"];
+  mikoshi.meta.users = ["cheryllamb"];
 
   # SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [

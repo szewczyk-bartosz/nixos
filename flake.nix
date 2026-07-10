@@ -31,10 +31,9 @@
           ./hosts/m1k1
         ]
         ++ (with mikoshi.modules.nixos; [
-          gnome
+          plasma
           gaming
           bmd
-          nvim
         ]);
     };
 
