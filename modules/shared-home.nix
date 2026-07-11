@@ -6,11 +6,21 @@
   home.username = "cheryllamb";
   home.homeDirectory = "/home/cheryllamb";
 
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      "cdd" = "cd ~/Desktop/";
+    };
+  };
+
   programs.git = {
     enable = true;
-    settings.user = {
-      name = "szewczyk-bartosz";
-      email = "cheryllamb123098@protonmail.com";
+    settings = {
+      init.defaultBranch = "main";
+      user = {
+        name = "szewczyk-bartosz";
+        email = "cheryllamb123098@protonmail.com";
+      };
     };
   };
 
