@@ -34,6 +34,7 @@
           plasma
           gaming
           bmd
+          obs-amd
         ]);
     };
 
@@ -56,7 +57,13 @@
       modules = [
         home-manager.nixosModules.home-manager
         ./hosts/pr1mk4
-      ];
+      ]
+
+        ++ (with mikoshi.modules.nixos; [
+          plasma
+          gaming
+          bmd
+        ]);
     };
 
     nixosConfigurations.k1v1 = nixpkgs.lib.nixosSystem {
