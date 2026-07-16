@@ -40,24 +40,6 @@
         };
       };
 
-      storage = {
-        type = "disk";
-        device = "/dev/nvme0n1";
-        content = {
-          type = "gpt";
-          partitions = {
-            data = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/home/cheryllamb/storage";
-                extraArgs = ["-L" "STORAGE"];
-              };
-            };
-          };
-        };
-      };
 
       external = {
         type = "disk";
@@ -80,7 +62,6 @@
     };
   };
   systemd.tmpfiles.rules = [
-    "d /home/cheryllamb/storage 0755 cheryllamb users - -"
     "d /storage 0755 cheryllamb users - -"
   ];
 }
