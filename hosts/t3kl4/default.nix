@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./disk.nix
     ./hardware.nix
@@ -20,10 +20,11 @@
   # USERS
   users.users.cheryllamb = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
     initialHashedPassword = "$y$j9T$Gr446qulQ0U51PTb0aJog1$UTxOM8SaTVsk2zKt0aSST8IXfdNeDj5rPzVwG8.BBH2";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILAHaK1ZfIKnemj7B5ZB8FBgJHi17R9fAvVfw9cZjbuU cheryllamb@m1k1"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJxqUwKe31pXQ1ahsNrbaGaHi8YYllaPObF2TOdbC/pg"
     ];
   };
 
@@ -31,13 +32,13 @@
   home-manager = {
     users.cheryllamb = {
       home.stateVersion = "26.05";
-      imports = [../../modules/shared-home.nix];
+      imports = [ ../../modules/shared-home.nix ];
     };
   };
 
   # NETWORKING
   networking.hostName = "t3kl4";
-  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [80];
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 80 ];
 
   services.openssh = {
     enable = true;
@@ -58,7 +59,7 @@
 
   systemd.services.caddy.serviceConfig = {
     ProtectHome = pkgs.lib.mkForce "tmpfs";
-    BindReadOnlyPaths = ["/home/cheryllamb/engram-data"];
+    BindReadOnlyPaths = [ "/home/cheryllamb/engram-data" ];
   };
 
   # OTHER
@@ -66,7 +67,10 @@
     "d /var/www 0755 cheryllamb users -"
     "d /var/www/engram 0755 cheryllamb users -"
   ];
-  nix.settings.trusted-users = ["root" "cheryllamb"];
+  nix.settings.trusted-users = [
+    "root"
+    "cheryllamb"
+  ];
 
   # OVERLAYS
 }

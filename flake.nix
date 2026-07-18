@@ -47,7 +47,6 @@
         ]
         ++ (with mikoshi.modules.nixos; [
           base
-          nvim
           bmd
         ]);
     };
