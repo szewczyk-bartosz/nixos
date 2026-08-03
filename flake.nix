@@ -53,14 +53,12 @@
 
     nixosConfigurations.pr1mk4 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [
-        home-manager.nixosModules.home-manager
-        ./hosts/pr1mk4
-      ]
-
+      modules =
+        [
+          ./hosts/pr1mk4
+        ]
         ++ (with mikoshi.modules.nixos; [
-          plasma
-          gaming
+          hyprland
           bmd
         ]);
     };
