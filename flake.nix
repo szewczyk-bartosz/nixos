@@ -53,6 +53,7 @@
 
     nixosConfigurations.pr1mk4 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {inherit nixpkgs-unstable;};
       modules =
         [
           ./hosts/pr1mk4
@@ -65,10 +66,15 @@
 
     nixosConfigurations.k1v1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {inherit nixpkgs-unstable;};
       modules = [
         disko.nixosModules.disko
         ./hosts/k1v1
-      ];
+      ]
+        ++ (with mikoshi.modules.nixos; [
+          hyprland
+          bmd
+        ]);
     };
 
     nixosConfigurations.virt = nixpkgs.lib.nixosSystem {

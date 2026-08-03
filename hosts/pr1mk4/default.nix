@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, nixpkgs-unstable, ...}: {
   system.stateVersion = "25.11";
   imports = [
     ./hardware.nix
@@ -12,6 +12,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # MIKOSHI OPTIONS
+  mikoshi.meta = {
+    keyboardLayouts = ["gb" "pl" "ua"];
+    users = ["cheryllamb"];
+  };
 
   # SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [];
@@ -44,4 +48,13 @@
   # nix.settings.trusted-users = ["root" "cheryllamb"];
 
   # OVERLAYS
+  nixpkgs.overlays = [
+    (final: prev: {
+      claude-code =
+        (import nixpkgs-unstable {
+          system = prev.system;
+          config.allowUnfree = true;
+        }).claude-code;
+    })
+  ];
 }
