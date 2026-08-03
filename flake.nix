@@ -18,7 +18,6 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
-    home-manager,
     mikoshi,
     disko,
   }: {

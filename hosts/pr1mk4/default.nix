@@ -16,6 +16,7 @@
     keyboardLayouts = ["gb" "pl" "ua"];
     users = ["cheryllamb"];
   };
+  mikoshi.waybar.battery.enable = true;
 
   # SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [];
