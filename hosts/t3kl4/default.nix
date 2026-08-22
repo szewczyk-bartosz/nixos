@@ -10,6 +10,9 @@
   boot.loader.grub.enable = true;
 
   # MIKOSHI OPTIONS
+  mikoshi = {
+    bmd.enable = true;
+  };
 
   #SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [

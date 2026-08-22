@@ -11,10 +11,7 @@
     };
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.follows = "mikoshi/nixpkgs";
-  };
-
-  outputs = {
+    nixpkgs.follows = "mikoshi/nixpkgs"; }; outputs = {
     self,
     nixpkgs,
     nixpkgs-unstable,
@@ -27,14 +24,9 @@
       modules =
         [
           disko.nixosModules.disko
+          mikoshi.modules.nixos.default
           ./hosts/m1k1
-        ]
-        ++ (with mikoshi.modules.nixos; [
-          plasma
-          gaming
-          bmd
-          obs-amd
-        ]);
+        ];
     };
 
     nixosConfigurations.t3kl4 = nixpkgs.lib.nixosSystem {
@@ -42,25 +34,18 @@
       modules =
         [
           disko.nixosModules.disko
+          mikoshi.modules.nixos.default
           ./hosts/t3kl4
-        ]
-        ++ (with mikoshi.modules.nixos; [
-          base
-          bmd
-        ]);
+        ];
     };
 
     nixosConfigurations.pr1mk4 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit nixpkgs-unstable;};
-      modules =
-        [
-          ./hosts/pr1mk4
-        ]
-        ++ (with mikoshi.modules.nixos; [
-          hyprland
-          bmd
-        ]);
+      modules = [
+        mikoshi.modules.nixos.default
+        ./hosts/pr1mk4
+      ];
     };
 
     nixosConfigurations.k1v1 = nixpkgs.lib.nixosSystem {

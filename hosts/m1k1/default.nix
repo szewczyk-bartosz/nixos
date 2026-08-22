@@ -23,8 +23,16 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
 
   # MIKOSHI OPTIONS
-  mikoshi.meta.keyboardLayouts = ["gb" "pl" "ua"];
-  mikoshi.meta.users = ["cheryllamb"];
+  mikoshi = {
+    meta = {
+      users = ["cheryllamb"];
+      keyboardLayouts = ["gb" "pl" "ua"];
+    };
+    plasma.enable = true;
+    gaming.enable = true;
+    bmd.enable = true;
+    obs-amd.enable = true;
+  };
 
   # SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [
