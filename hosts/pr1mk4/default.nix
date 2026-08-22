@@ -1,4 +1,10 @@
-{pkgs, lib, nixpkgs-unstable, ...}: {
+{
+  pkgs,
+  lib,
+  nixpkgs-unstable,
+  ...
+}:
+{
   system.stateVersion = "25.11";
   imports = [
     ./hardware.nix
@@ -12,25 +18,37 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # MIKOSHI OPTIONS
-  mikoshi.meta = {
-    keyboardLayouts = ["gb" "pl" "ua"];
-    users = ["cheryllamb"];
+  mikoshi = {
+    meta = {
+      keyboardLayouts = [
+        "gb"
+        "pl"
+        "ua"
+      ];
+      users = [ "cheryllamb" ];
+    };
+
+    stylix = {
+      enable = true;
+      base16Scheme = "catppuccin-mocha";
+    };
+    
+    hyprland.enable = true;
+    # waybar.battery.enable = true;
+    hyprland.wallpaper = ../../wallpapers/nixos.png;
   };
-  mikoshi.waybar.battery.enable = true;
-  mikoshi.stylix = {
-    enable = true;
-    base16Scheme = "catppuccin-mocha";
-  };
-  mikoshi.hyprland.wallpaper = ../../wallpapers/nixos.png;
 
   # SYSTEM PACKAGES
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [ ];
 
   # USERS
   users.users.cheryllamb = {
     isNormalUser = true;
-    extraGroups = ["wheel" "gamemode"];
-    packages = with pkgs; [];
+    extraGroups = [
+      "wheel"
+      "gamemode"
+    ];
+    packages = with pkgs; [ ];
   };
 
   # HOME MANAGER
@@ -39,7 +57,7 @@
     useUserPackages = true;
     users.cheryllamb = {
       home.stateVersion = "26.05";
-      imports = [../../modules/shared-home.nix];
+      imports = [ ../../modules/shared-home.nix ];
     };
   };
 
