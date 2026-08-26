@@ -7,7 +7,7 @@
 {
   options.dots.dev.git.enable = lib.mkEnableOption "personal git identity";
 
-  config = lib.mkIf config.dots.home.git.enable {
+  config = lib.mkIf config.dots.dev.git.enable {
     home-manager.users = lib.genAttrs config.mikoshi.meta.users (user: {
       programs.git = {
         enable = true;

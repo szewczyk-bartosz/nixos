@@ -8,7 +8,7 @@
   options.dots = {
     dev.tools.default.enable = lib.mkEnableOption "the default development tools";
   };
-  config = lib.mkIf config.dev.tools.default.enable {
+  config = lib.mkIf config.dots.dev.tools.default.enable {
     programs.direnv = {
       enable = true;
       nix-direnv.enable = true;
