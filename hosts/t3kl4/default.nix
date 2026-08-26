@@ -35,11 +35,6 @@
   users.users.cheryllamb = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    initialHashedPassword = "$y$j9T$Gr446qulQ0U51PTb0aJog1$UTxOM8SaTVsk2zKt0aSST8IXfdNeDj5rPzVwG8.BBH2";
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILAHaK1ZfIKnemj7B5ZB8FBgJHi17R9fAvVfw9cZjbuU cheryllamb@m1k1"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJxqUwKe31pXQ1ahsNrbaGaHi8YYllaPObF2TOdbC/pg"
-    ];
   };
 
   # HOME MANAGER
@@ -53,13 +48,6 @@
   networking.hostName = "t3kl4";
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 80 ];
 
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      PermitRootLogin = "prohibit-password";
-    };
-  };
 
   services.caddy = {
     enable = true;
