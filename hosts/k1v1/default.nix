@@ -17,7 +17,7 @@
 
   # DOTS OPTIONS
   dots = {
-    ssh.allowFrom = ["m1k1"];
+    ssh.allowFrom = [ "m1k1" ];
     remoteDeployment.enable = true;
     engram.enable = true;
     apps.default.enable = true;
@@ -41,7 +41,7 @@
       enable = true;
       base16Scheme = "catppuccin-mocha";
     };
-    
+
     hyprland.enable = true;
     # waybar.battery.enable = true;
     hyprland.wallpaper = ../../wallpapers/nixos.png;
@@ -71,22 +71,8 @@
 
   # NETWORKING
   networking.hostName = "k1v1";
-  services.openssh.enable = true;
 
   # OTHER
-  # users.users.root.openssh.authorizedKeys.keys = [
-  #   "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOWIO068BP8YipXaSHkjJL/xzyv2PBfveoXt5Z9GsSKM cheryllamb@m1k1"
-  # ];
-  # nix.settings.trusted-users = ["root" "cheryllamb"];
 
   # OVERLAYS
-  nixpkgs.overlays = [
-    (final: prev: {
-      claude-code =
-        (import nixpkgs-unstable {
-          system = prev.system;
-          config.allowUnfree = true;
-        }).claude-code;
-    })
-  ];
 }

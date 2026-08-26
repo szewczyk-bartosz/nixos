@@ -71,13 +71,4 @@ in {
   programs.virt-manager.enable = true;
 
   # OVERLAYS
-  nixpkgs.overlays = [
-    (final: prev: {
-      claude-code =
-        (import nixpkgs-unstable {
-          system = prev.system;
-          config.allowUnfree = true;
-        }).claude-code;
-    })
-  ];
 }

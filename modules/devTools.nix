@@ -9,6 +9,7 @@
     dev.tools.default.enable = lib.mkEnableOption "the default development tools";
   };
   config = lib.mkIf config.dots.dev.tools.default.enable {
+    dots.dev.claude-unstable.enable = true;
     programs.direnv = {
       enable = true;
       nix-direnv.enable = true;

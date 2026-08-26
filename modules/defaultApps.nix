@@ -11,7 +11,6 @@
       unzip
       firefox
       vlc
-      claude-code
       discord
       keepassxc
       spotify

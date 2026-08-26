@@ -30,7 +30,6 @@
   environment.systemPackages = with pkgs; [
     git
     python313
-    claude-code
   ];
 
   # USERS
@@ -70,19 +69,6 @@
     "d /var/www 0755 cheryllamb users -"
     "d /var/www/engram 0755 cheryllamb users -"
   ];
-  nix.settings.trusted-users = [
-    "root"
-    "cheryllamb"
-  ];
 
   # OVERLAYS
-  nixpkgs.overlays = [
-    (final: prev: {
-      claude-code =
-        (import nixpkgs-unstable {
-          system = prev.system;
-          config.allowUnfree = true;
-        }).claude-code;
-    })
-  ];
 }
