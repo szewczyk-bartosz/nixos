@@ -64,12 +64,11 @@
     useUserPackages = true;
     users.cheryllamb = {
       home.stateVersion = "26.05";
-      imports = [ ../../modules/shared-home.nix ];
     };
   };
 
   # NETWORKING
-  networking.hostName = "pr1mk4";
+  networking.hostName = "k1v1";
   services.openssh.enable = true;
 
   # OTHER

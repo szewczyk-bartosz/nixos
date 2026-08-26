@@ -60,9 +60,6 @@ in {
     users.cheryllamb = {
       home.stateVersion = "26.05";
       programs.mangohud.enable = true;
-      imports = [
-        ../../modules/shared-home.nix
-      ];
     };
   };
 
