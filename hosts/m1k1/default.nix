@@ -13,14 +13,20 @@ in {
   imports = [
     ./hardware.nix
     ./disk.nix
-    ../../modules/shared-system.nix
-    ../../modules/defaultApps.nix
-    ../../modules/devTools.nix
   ];
 
   # BOOT
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # DOTS OPTIONS
+  dots = {
+    engram.enable = true;
+    apps.default.enable = true;
+    dev.tools.default.enable = true;
+    dev.git.enable = true;
+    dev.shellConfig.enable = true;
+  };
 
   # MIKOSHI OPTIONS
   mikoshi = {

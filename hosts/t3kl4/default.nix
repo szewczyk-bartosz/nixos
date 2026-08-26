@@ -2,12 +2,18 @@
   imports = [
     ./disk.nix
     ./hardware.nix
-    ../../modules/shared-system.nix
   ];
   system.stateVersion = "25.11";
 
   # BOOT
   boot.loader.grub.enable = true;
+
+  # DOTS OPTIONS
+  dots = {
+    engram.enable = true;
+    dev.git.enable = true;
+    dev.shellConfig.enable = true;
+  };
 
   # MIKOSHI OPTIONS
   mikoshi = {
