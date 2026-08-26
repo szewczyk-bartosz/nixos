@@ -34,6 +34,7 @@
         modules = [
           disko.nixosModules.disko
           mikoshi.modules.nixos.default
+          dots
           ./hosts/m1k1
         ];
       };
@@ -44,6 +45,7 @@
         modules = [
           disko.nixosModules.disko
           mikoshi.modules.nixos.default
+          dots
           ./hosts/t3kl4
         ];
       };
@@ -53,6 +55,8 @@
         specialArgs = { inherit nixpkgs-unstable; };
         modules = [
           mikoshi.modules.nixos.default
+          disko.nixosModules.disko
+          dots
           ./hosts/k1v1
         ];
       };
@@ -60,7 +64,9 @@
       nixosConfigurations.virt = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          mikoshi.modules.nixos.default
           disko.nixosModules.disko
+          dots
           ./hosts/virt
         ];
       };
