@@ -4,11 +4,9 @@
   ...
 }: let
   syncthingDevices = {
-    m1k1 = "<M1K1-DEVICE-ID>";
-    k1v1 = "<K1V1-DEVICE-ID>";
-    t3kl4 = "<T3KL4-DEVICE-ID>";
-    pr1mk4 = "<PR1MK4-DEVICE-ID>";
-    virt = "<VIRT-DEVICE-ID>";
+    m1k1 = "C7TARJK-2YVSJ5G-GM2EDGL-A3HC27H-VM4XVYG-4NTPBZF-YJNOHQ6-73HQWQS";
+    t3kl4 = "JP27KOO-FKJSWJ6-QOS7WDL-S2Y3373-GHK4M2M-DX37F7A-UUKUDLF-QJPXKA7";
+    k1v1 = "<K1V1-ID>";
   };
   peers = lib.filterAttrs (name: _: name != config.networking.hostName) syncthingDevices;
 in {
