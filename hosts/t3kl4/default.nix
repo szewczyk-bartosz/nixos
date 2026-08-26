@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, nixpkgs-unstable, ... }: {
   imports = [
     ./disk.nix
     ./hardware.nix
@@ -11,13 +11,18 @@
 
   # MIKOSHI OPTIONS
   mikoshi = {
+    meta = {
+      users = ["cheryllamb"];
+      keyboardLayouts = ["gb"];
+    };
     bmd.enable = true;
   };
 
-  #SYSTEM PACKAGES
+  # SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [
     git
     python313
+    claude-code
   ];
 
   # USERS
@@ -76,4 +81,13 @@
   ];
 
   # OVERLAYS
+  nixpkgs.overlays = [
+    (final: prev: {
+      claude-code =
+        (import nixpkgs-unstable {
+          system = prev.system;
+          config.allowUnfree = true;
+        }).claude-code;
+    })
+  ];
 }
