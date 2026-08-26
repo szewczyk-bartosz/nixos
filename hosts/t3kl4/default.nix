@@ -15,6 +15,7 @@
     engram.enable = true;
     dev.git.enable = true;
     dev.shellConfig.enable = true;
+    dev.claude-unstable.enable = true;
   };
 
   # MIKOSHI OPTIONS
