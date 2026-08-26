@@ -10,6 +10,8 @@
 
   # DOTS OPTIONS
   dots = {
+    ssh.allowFrom = ["m1k1" "phone"];
+    remoteDeployment.enable = true;
     engram.enable = true;
     dev.git.enable = true;
     dev.shellConfig.enable = true;
