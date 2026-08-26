@@ -12,6 +12,8 @@
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.follows = "mikoshi/nixpkgs";
+
+    import-tree.url = "github:denful/import-tree";
   };
   outputs =
     {
@@ -19,8 +21,12 @@
       nixpkgs,
       nixpkgs-unstable,
       mikoshi,
+      import-tree,
       disko,
     }:
+    let
+      dots = import-tree.lib ./modules;
+    in
     {
       nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
