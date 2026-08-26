@@ -1,8 +1,13 @@
-{pkgs, nixpkgs-unstable, ...}: {
-  system.stateVersion = "26.05";
+{
+  pkgs,
+  lib,
+  nixpkgs-unstable,
+  ...
+}:
+{
+  system.stateVersion = "25.11";
   imports = [
     ./hardware.nix
-    ./disk.nix
     ../../modules/shared-system.nix
     ../../modules/defaultApps.nix
     ../../modules/devTools.nix
@@ -13,17 +18,37 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # MIKOSHI OPTIONS
-  mikoshi.meta.keyboardLayouts = ["gb" "pl" "ua"];
-  mikoshi.meta.users = ["cheryllamb"];
+  mikoshi = {
+    meta = {
+      keyboardLayouts = [
+        "gb"
+        "pl"
+        "ua"
+      ];
+      users = [ "cheryllamb" ];
+    };
+
+    stylix = {
+      enable = true;
+      base16Scheme = "catppuccin-mocha";
+    };
+    
+    hyprland.enable = true;
+    # waybar.battery.enable = true;
+    hyprland.wallpaper = ../../wallpapers/nixos.png;
+  };
 
   # SYSTEM PACKAGES
-  environment.systemPackages = with pkgs; [prismlauncher];
+  environment.systemPackages = with pkgs; [ ];
 
   # USERS
   users.users.cheryllamb = {
     isNormalUser = true;
-    extraGroups = ["wheel" "gamemode"];
-    packages = with pkgs; [];
+    extraGroups = [
+      "wheel"
+      "gamemode"
+    ];
+    packages = with pkgs; [ ];
   };
 
   # HOME MANAGER
@@ -32,21 +57,19 @@
     useUserPackages = true;
     users.cheryllamb = {
       home.stateVersion = "26.05";
-      programs.mangohud.enable = true;
-      imports = [../../modules/shared-home.nix];
+      imports = [ ../../modules/shared-home.nix ];
     };
   };
 
   # NETWORKING
-  networking.hostName = "k1v1";
+  networking.hostName = "pr1mk4";
+  services.openssh.enable = true;
 
   # OTHER
-  # some optimisation i dont remember what they do
-  boot.kernel.sysctl."kernel.sched_itmt_enabled" = 1;
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
-    DXVK_ASYNC = "1";
-  };
+  # users.users.root.openssh.authorizedKeys.keys = [
+  #   "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOWIO068BP8YipXaSHkjJL/xzyv2PBfveoXt5Z9GsSKM cheryllamb@m1k1"
+  # ];
+  # nix.settings.trusted-users = ["root" "cheryllamb"];
 
   # OVERLAYS
   nixpkgs.overlays = [
