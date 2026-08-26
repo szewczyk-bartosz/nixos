@@ -18,7 +18,7 @@ in
     };
   };
   config = lib.mkIf (config.dots.ssh.allowFrom != [ ]) {
-    users.users.cheryllamb.openssh.authorisedKeys.keys = lib.map (
+    users.users.cheryllamb.openssh.authorizedKeys.keys = lib.map (
       name: controllerKeys.${name}
     ) config.dots.ssh.allowFrom;
 
