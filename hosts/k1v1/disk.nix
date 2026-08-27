@@ -1,6 +1,6 @@
 {
   disko.devices = {
-    main = {
+    disk.main = {
       type = "disk";
       device = "/dev/nvme0n1";
       content = {
@@ -25,7 +25,7 @@
             };
           };
           swap = {
-            size = "40G";
+            size = "22G";
             content = {
               type = "swap";
               discardPolicy = "both";
