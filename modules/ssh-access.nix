@@ -24,11 +24,13 @@ in
 
     services.openssh = {
       enable = true;
+      openFirewall = false;
       settings = {
         PasswordAuthentication = false;
         PermitRootLogin = "prohibit-password";
       };
     };
+    networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 22 ];
   };
 
 }
