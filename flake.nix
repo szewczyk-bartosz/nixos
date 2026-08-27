@@ -25,7 +25,7 @@
       disko,
     }:
     let
-      dots = import-tree.lib ./modules;
+      dots = import-tree ./modules;
     in
     {
       nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
