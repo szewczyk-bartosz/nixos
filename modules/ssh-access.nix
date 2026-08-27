@@ -16,21 +16,35 @@ in
       default = [ ];
       description = "Hosts whose key gets added to cheryllamb's list of authorised keys";
     };
+    ssh.tailscaleOnly = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "If true, port 22 is only opened on the tailscale0 interface. If false, it's opened on all interfaces normally.";
+    };
   };
   config = lib.mkIf (config.dots.ssh.allowFrom != [ ]) {
     users.users.cheryllamb.openssh.authorizedKeys.keys = lib.map (
       name: controllerKeys.${name}
     ) config.dots.ssh.allowFrom;
 
+    services.fail2ban = {
+      enable = !config.dots.ssh.tailscaleOnly;
+      maxretry = 8;
+      bantime = "1h";
+      bantime-increment.enable = true; 
+    };
+
     services.openssh = {
       enable = true;
-      openFirewall = false;
+      openFirewall = !config.dots.ssh.tailscaleOnly;
       settings = {
         PasswordAuthentication = false;
         PermitRootLogin = "prohibit-password";
       };
     };
-    networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 22 ];
+    networking.firewall.interfaces.tailscale0.allowedTCPPorts = lib.mkIf config.dots.ssh.tailscaleOnly [
+      22
+    ];
   };
 
 }
