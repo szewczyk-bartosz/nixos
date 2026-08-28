@@ -43,7 +43,7 @@
     };
 
     hyprland.enable = true;
-    hyprland.waybar.battery.enable = true;
+    waybar.battery.enable = true;
     hyprland.wallpaper = ../../wallpapers/nixos.png;
   };
 
