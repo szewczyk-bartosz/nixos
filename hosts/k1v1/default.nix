@@ -21,9 +21,11 @@
     remoteDeployment.enable = true;
     engram.enable = true;
     apps.default.enable = true;
-    dev.tools.default.enable = true;
-    dev.git.enable = true;
-    dev.shellConfig.enable = true;
+    dev = {
+      tools.default.enable = true;
+      git.enable = true;
+      shellConfig.enable = true;
+    };
   };
 
   # MIKOSHI OPTIONS
@@ -42,9 +44,11 @@
       base16Scheme = "catppuccin-mocha";
     };
 
-    hyprland.enable = true;
+    wm.hyprland = {
+      enable = true;
+      wallpaper = ../../wallpapers/nixos.png;
+    };
     waybar.battery.enable = true;
-    hyprland.wallpaper = ../../wallpapers/nixos.png;
   };
 
   # SYSTEM PACKAGES

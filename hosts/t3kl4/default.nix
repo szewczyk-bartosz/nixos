@@ -13,9 +13,11 @@
     ssh.allowFrom = ["m1k1" "phone"];
     remoteDeployment.enable = true;
     engram.enable = true;
-    dev.git.enable = true;
-    dev.shellConfig.enable = true;
-    dev.claude-unstable.enable = true;
+    dev = {
+      git.enable = true;
+      shellConfig.enable = true;
+      claude-unstable.enable = true;
+    };
   };
 
   # MIKOSHI OPTIONS

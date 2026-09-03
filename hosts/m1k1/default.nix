@@ -23,9 +23,11 @@ in {
   dots = {
     engram.enable = true;
     apps.default.enable = true;
-    dev.tools.default.enable = true;
-    dev.git.enable = true;
-    dev.shellConfig.enable = true;
+    dev = {
+      tools.default.enable = true;
+      git.enable = true;
+      shellConfig.enable = true;
+    };
   };
 
   # MIKOSHI OPTIONS
@@ -34,7 +36,7 @@ in {
       users = ["cheryllamb"];
       keyboardLayouts = ["gb" "pl" "ua"];
     };
-    plasma.enable = true;
+    wm.plasma.enable = true;
     gaming.enable = true;
     bmd.enable = true;
     obs-amd.enable = true;
