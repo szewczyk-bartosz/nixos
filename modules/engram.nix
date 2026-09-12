@@ -19,7 +19,7 @@ in
   config = lib.mkIf config.dots.engram.enable {
     services.tailscale.enable = true;
     systemd.tmpfiles.rules = [
-      "d /home/cheryllamb/engram-data/raw 0755 cheryllamb users - -"
+      "d /home/cheryllamb/engram-data/ 0755 cheryllamb users - -"
     ];
     services.syncthing = {
       enable = true;
@@ -38,7 +38,7 @@ in
           addresses = [ "tcp://${name}:22000" ];
         }) peers;
         folders."engram-raw" = {
-          path = "/home/cheryllamb/engram-data/raw";
+          path = "/home/cheryllamb/engram-data/";
           devices = lib.attrNames peers;
         };
       };

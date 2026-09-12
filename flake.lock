@@ -282,11 +282,11 @@
     },
     "import-tree": {
       "locked": {
-        "lastModified": 1784254960,
-        "narHash": "sha256-iI88R3wHz8wTKQb5orvpc51L/Xr64AJyxid/0MKa/b8=",
+        "lastModified": 1788275959,
+        "narHash": "sha256-doeyg/EY8joBaZhELfVrSGjAm6pFtp2p0UgQv/Wwgh0=",
         "owner": "denful",
         "repo": "import-tree",
-        "rev": "4ebb10ae17d5f1ad366e7aef5b92cb8eecf24f69",
+        "rev": "e9177dd0d600162a6410ea6019c796cff7a636c3",
         "type": "github"
       },
       "original": {
@@ -322,11 +322,11 @@
         "stylix": "stylix"
       },
       "locked": {
-        "lastModified": 1787787804,
-        "narHash": "sha256-FVLE2blHXQ/LZZCyDBktE6OFTX4XEZeKIy1ba3+zg1g=",
+        "lastModified": 1788988324,
+        "narHash": "sha256-VhMITokN/rNDtFJ6numUkTeKPmGqOYG4qXb0ZQRHS+8=",
         "owner": "szewczyk-bartosz",
         "repo": "mikoshi",
-        "rev": "dd0d1cdf57966835b0af121e3a97e7dd97d1c00d",
+        "rev": "60bb84f1a55ebb77a2870690d3c94855611e1ffb",
         "type": "github"
       },
       "original": {
@@ -419,11 +419,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1783522502,
-        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
+        "lastModified": 1788316716,
+        "narHash": "sha256-bc7rSpXIdn9QWGNqfWcPZWOhEVF8NoeAZkWq0XWnf/k=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
+        "rev": "3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
         "type": "github"
       },
       "original": {

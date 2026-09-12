@@ -58,8 +58,24 @@
     virtualHosts."http://t3kl4".extraConfig = ''
       bind 0.0.0.0
       root * /var/www/engram
+      handle /api/* {
+        reverse_proxy localhost:8001
+      }
       file_server
     '';
+
+  };
+
+  systemd.services.engram-api = {
+    description = "Engram sync API";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.python3}/bin/python3 /var/www/engram/server.py";
+      Restart = "always";
+      User = "cheryllamb";
+      WorkingDirectory = "/var/www/engram";
+    };
   };
 
   systemd.services.caddy.serviceConfig = {
