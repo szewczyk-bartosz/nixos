@@ -29,7 +29,7 @@
     import-tree,
     disko,
   }: let
-    dots = import-tree ./modules;
+    dots = import-tree ../modules;
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
     devShells.x86_64-linux.default = pkgs.mkShell {
@@ -60,7 +60,7 @@
         disko.nixosModules.disko
         mikoshi.modules.nixos.default
         dots
-        ./hosts/t3kl4
+        ../hosts/t3kl4
       ];
     };
   };
