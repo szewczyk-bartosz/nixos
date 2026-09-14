@@ -53,42 +53,13 @@
   networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 80 ];
 
 
-  services.caddy = {
-    enable = true;
-    virtualHosts."http://t3kl4".extraConfig = ''
-      bind 0.0.0.0
-      root * /var/www/engram
-      handle /api/* {
-        reverse_proxy localhost:8001
-      }
-      file_server
-    '';
-
-  };
-
-  systemd.services.engram-api = {
-    description = "Engram sync API";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.python3}/bin/python3 /var/www/engram/server.py";
-      Restart = "always";
-      User = "cheryllamb";
-      WorkingDirectory = "/var/www/engram";
-      Environment = "PATH=${pkgs.python3}/bin:/run/current-system/sw/bin";
-    };
-  };
-
-  systemd.services.caddy.serviceConfig = {
-    ProtectHome = pkgs.lib.mkForce "tmpfs";
-    BindReadOnlyPaths = [ "/home/cheryllamb/engram-data" ];
-  };
-
   # OTHER
-  systemd.tmpfiles.rules = [
-    "d /var/www 0755 cheryllamb users -"
-    "d /var/www/engram 0755 cheryllamb users -"
-  ];
+  services.engram = {
+    enable = true;
+    notesDir = "/home/cheryllamb/engram-data/";
+    user = "cheryllamb";
+  };
+
 
   # OVERLAYS
 }

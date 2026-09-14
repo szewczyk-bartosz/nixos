@@ -12,15 +12,12 @@ let
   peers = lib.filterAttrs (name: _: name != config.networking.hostName) syncthingDevices;
 in
 {
-  options.dots.engram = {
+  options.dots.syncthing = {
     enable = lib.mkEnableOption "engram: sync notes to the fleet via syncthing over tailscale";
   };
 
   config = lib.mkIf config.dots.engram.enable {
     services.tailscale.enable = true;
-    systemd.tmpfiles.rules = [
-      "d /home/cheryllamb/engram-data/ 0755 cheryllamb users - -"
-    ];
     systemd.services.syncthing = {
       after = [ "systemd-tmpfiles-setup.service" ];
       requires = [ "systemd-tmpfiles-setup.service" ];

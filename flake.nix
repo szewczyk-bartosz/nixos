@@ -10,6 +10,11 @@
       # url = "path:/home/cheryllamb/mikoshi";
     };
 
+    engram = {
+      url = "github:szewczyk-bartosz/engram";
+      inputs.nixpkgs.follows = "mikoshi/nixpkgs";
+    };
+
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.follows = "mikoshi/nixpkgs";
 
@@ -21,6 +26,7 @@
       nixpkgs,
       nixpkgs-unstable,
       mikoshi,
+      engram,
       import-tree,
       disko,
     }:
@@ -43,6 +49,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit nixpkgs-unstable; };
         modules = [
+          engram.nixosModules.default
           disko.nixosModules.disko
           mikoshi.modules.nixos.default
           dots
