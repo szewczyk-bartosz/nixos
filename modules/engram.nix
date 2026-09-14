@@ -5,9 +5,9 @@
 }:
 let
   syncthingDevices = {
-    m1k1 = "C7TARJK-2YVSJ5G-GM2EDGL-A3HC27H-VM4XVYG-4NTPBZF-YJNOHQ6-73HQWQS";
-    t3kl4 = "JP27KOO-FKJSWJ6-QOS7WDL-S2Y3373-GHK4M2M-DX37F7A-UUKUDLF-QJPXKA7";
-    k1v1 = "<K1V1-ID>";
+    m1k1 = "TDHIEIT-KHXUAZS-ED66URH-T5RZTLL-EXY6G4F-HSISC4S-A3P6XTW-HU3JWQK";
+    t3kl4 = "NXG3N4Q-5EBYPZB-EL7H5UX-AFVPGDO-NFCFDFY-FSSXMTV-SEUKT2U-ASLXOQX";
+    # k1v1 = "<K1V1-ID>";
   };
   peers = lib.filterAttrs (name: _: name != config.networking.hostName) syncthingDevices;
 in
@@ -21,7 +21,13 @@ in
     systemd.tmpfiles.rules = [
       "d /home/cheryllamb/engram-data/ 0755 cheryllamb users - -"
     ];
+    systemd.services.syncthing = {
+      after = [ "systemd-tmpfiles-setup.service" ];
+      requires = [ "systemd-tmpfiles-setup.service" ];
+    };
     services.syncthing = {
+      overrideDevices = true;
+      overrideFolders = true;
       enable = true;
       user = "cheryllamb";
       guiAddress = "127.0.0.1:8384";

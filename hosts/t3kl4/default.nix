@@ -75,6 +75,7 @@
       Restart = "always";
       User = "cheryllamb";
       WorkingDirectory = "/var/www/engram";
+      Environment = "PATH=${pkgs.python3}/bin:/run/current-system/sw/bin";
     };
   };
 
