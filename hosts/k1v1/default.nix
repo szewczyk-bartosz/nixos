@@ -19,7 +19,7 @@
   dots = {
     ssh.allowFrom = [ "m1k1" ];
     remoteDeployment.enable = true;
-    engram.enable = true;
+    syncthing.enable = true;
     apps.default.enable = true;
     dev = {
       tools.default.enable = true;

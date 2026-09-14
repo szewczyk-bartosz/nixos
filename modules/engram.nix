@@ -16,7 +16,7 @@ in
     enable = lib.mkEnableOption "engram: sync notes to the fleet via syncthing over tailscale";
   };
 
-  config = lib.mkIf config.dots.engram.enable {
+  config = lib.mkIf config.dots.syncthing.enable {
     services.tailscale.enable = true;
     systemd.services.syncthing = {
       after = [ "systemd-tmpfiles-setup.service" ];

@@ -12,7 +12,7 @@
   dots = {
     ssh.allowFrom = ["m1k1" "phone"];
     remoteDeployment.enable = true;
-    engram.enable = true;
+    syncthing.enable = true;
     dev = {
       git.enable = true;
       shellConfig.enable = true;

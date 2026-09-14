@@ -21,7 +21,7 @@ in {
 
   # DOTS OPTIONS
   dots = {
-    engram.enable = true;
+    syncthing.enable = true;
     apps.default.enable = true;
     dev = {
       tools.default.enable = true;
