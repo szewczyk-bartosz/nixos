@@ -1,4 +1,8 @@
-{ pkgs, nixpkgs-unstable, ... }: {
+{
+  pkgs,
+  nixpkgs-unstable,
+  ...
+}: {
   imports = [
     ./disk.nix
     ./hardware.nix
@@ -38,7 +42,7 @@
   # USERS
   users.users.cheryllamb = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
   };
 
   # HOME MANAGER
@@ -50,8 +54,7 @@
 
   # NETWORKING
   networking.hostName = "t3kl4";
-  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 80 ];
-
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [80];
 
   # OTHER
   services.engram = {
@@ -59,7 +62,6 @@
     notesDir = "/home/cheryllamb/engram-data/";
     user = "cheryllamb";
   };
-
 
   # OVERLAYS
 }

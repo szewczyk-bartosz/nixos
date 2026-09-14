@@ -3,8 +3,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   options.dots = {
     dev.tools.default.enable = lib.mkEnableOption "the default development tools";
   };
@@ -23,13 +22,14 @@
       maven
       jdk
       (python313.withPackages (
-        python-pkgs: with python-pkgs; [
-          playwright-stealth
-          pygame
-          playwright
-          beautifulsoup4
-          requests
-        ]
+        python-pkgs:
+          with python-pkgs; [
+            playwright-stealth
+            pygame
+            playwright
+            beautifulsoup4
+            requests
+          ]
       ))
       playwright
     ];

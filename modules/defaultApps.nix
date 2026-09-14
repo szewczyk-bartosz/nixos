@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options.dots = {
     apps.default.enable = lib.mkEnableOption "default set of desktop apps I use";
   };

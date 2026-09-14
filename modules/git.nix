@@ -3,8 +3,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   options.dots.dev.git.enable = lib.mkEnableOption "personal git identity";
 
   config = lib.mkIf config.dots.dev.git.enable {

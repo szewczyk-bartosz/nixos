@@ -4,8 +4,7 @@
   pkgs,
   nixpkgs-unstable,
   ...
-}:
-{
+}: {
   options.dots.dev.claude-unstable.enable =
     lib.mkEnableOption "claude-code, sourced from nixpkgs-unstable rather than the pinned nixpkgs";
 
@@ -20,6 +19,6 @@
       })
     ];
 
-    environment.systemPackages = [ pkgs.claude-code ];
+    environment.systemPackages = [pkgs.claude-code];
   };
 }

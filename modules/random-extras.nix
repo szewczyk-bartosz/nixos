@@ -1,3 +1,3 @@
 {
-    boot.blacklistedKernelModules = [ "rxrpc" ];
+  boot.blacklistedKernelModules = ["rxrpc"];
 }

@@ -3,8 +3,7 @@
   lib,
   nixpkgs-unstable,
   ...
-}:
-{
+}: {
   system.stateVersion = "25.11";
   imports = [
     ./hardware.nix
@@ -17,7 +16,7 @@
 
   # DOTS OPTIONS
   dots = {
-    ssh.allowFrom = [ "m1k1" ];
+    ssh.allowFrom = ["m1k1"];
     remoteDeployment.enable = true;
     syncthing.enable = true;
     apps.default.enable = true;
@@ -36,7 +35,7 @@
         "pl"
         "ua"
       ];
-      users = [ "cheryllamb" ];
+      users = ["cheryllamb"];
     };
 
     stylix = {
@@ -52,7 +51,7 @@
   };
 
   # SYSTEM PACKAGES
-  environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [];
 
   # USERS
   users.users.cheryllamb = {
@@ -61,7 +60,7 @@
       "wheel"
       "gamemode"
     ];
-    packages = with pkgs; [ ];
+    packages = with pkgs; [];
   };
 
   # HOME MANAGER

@@ -40,7 +40,6 @@
         };
       };
 
-
       external = {
         type = "disk";
         device = "/dev/sda";

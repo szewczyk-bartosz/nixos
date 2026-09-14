@@ -1,6 +1,9 @@
 # modules/home-shell.nix
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   options.dots.dev.shellConfig.enable = lib.mkEnableOption "personal shell aliases";
 
   config = lib.mkIf config.dots.dev.shellConfig.enable {

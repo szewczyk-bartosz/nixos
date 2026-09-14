@@ -20,62 +20,72 @@
 
     import-tree.url = "github:denful/import-tree";
   };
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-unstable,
-      mikoshi,
-      engram,
-      import-tree,
-      disko,
-    }:
-    let
-      dots = import-tree ./modules;
-    in
-    {
-      nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit nixpkgs-unstable; };
-        modules = [
-          disko.nixosModules.disko
-          mikoshi.modules.nixos.default
-          dots
-          ./hosts/m1k1
-        ];
-      };
-
-      nixosConfigurations.t3kl4 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit nixpkgs-unstable; };
-        modules = [
-          engram.nixosModules.default
-          disko.nixosModules.disko
-          mikoshi.modules.nixos.default
-          dots
-          ./hosts/t3kl4
-        ];
-      };
-
-      nixosConfigurations.k1v1 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit nixpkgs-unstable; };
-        modules = [
-          mikoshi.modules.nixos.default
-          disko.nixosModules.disko
-          dots
-          ./hosts/k1v1
-        ];
-      };
-
-      nixosConfigurations.virt = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          mikoshi.modules.nixos.default
-          disko.nixosModules.disko
-          dots
-          ./hosts/virt
-        ];
-      };
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    mikoshi,
+    engram,
+    import-tree,
+    disko,
+  }: let
+    dots = import-tree ./modules;
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
+  in {
+    devShells.x86_64-linux.default = pkgs.mkShell {
+      packages = [
+        (pkgs.writeShellScriptBin "deploy-engram" ''
+          set -e
+          nix flake update engram
+          git add flake.lock
+          git commit -m "bumped engram"
+          nixos-rebuild switch --flake .#t3kl4 --target-host cheryllamb@t3kl4 --build-host localhost --use-remote-sudo
+        '')
+      ];
     };
+
+    nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit nixpkgs-unstable;};
+      modules = [
+        disko.nixosModules.disko
+        mikoshi.modules.nixos.default
+        dots
+        ./hosts/m1k1
+      ];
+    };
+
+    nixosConfigurations.t3kl4 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit nixpkgs-unstable;};
+      modules = [
+        engram.nixosModules.default
+        disko.nixosModules.disko
+        mikoshi.modules.nixos.default
+        dots
+        ./hosts/t3kl4
+      ];
+    };
+
+    nixosConfigurations.k1v1 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit nixpkgs-unstable;};
+      modules = [
+        mikoshi.modules.nixos.default
+        disko.nixosModules.disko
+        dots
+        ./hosts/k1v1
+      ];
+    };
+
+    nixosConfigurations.virt = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        mikoshi.modules.nixos.default
+        disko.nixosModules.disko
+        dots
+        ./hosts/virt
+      ];
+    };
+  };
 }
