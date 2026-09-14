@@ -109,6 +109,46 @@
         "type": "github"
       }
     },
+    "engram": {
+      "inputs": {
+        "engramware": "engramware",
+        "nixpkgs": [
+          "mikoshi",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789411543,
+        "narHash": "sha256-9AAzGU9YodudgaDhVhLeUfANZdYkOhiVsEoK8hkWemI=",
+        "owner": "szewczyk-bartosz",
+        "repo": "engram",
+        "rev": "b983fe442624b52c1bbf45236caeb444682dee8c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "szewczyk-bartosz",
+        "repo": "engram",
+        "type": "github"
+      }
+    },
+    "engramware": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1789157205,
+        "narHash": "sha256-1R/sM0X44V1S+2K/CpmhT3FhTW+qyUM3FyhX1xW1I5E=",
+        "owner": "szewczyk-bartosz",
+        "repo": "engramware",
+        "rev": "d2f512d1168e8181eae4574449edf321016fde86",
+        "type": "github"
+      },
+      "original": {
+        "owner": "szewczyk-bartosz",
+        "repo": "engramware",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -295,7 +335,7 @@
         "home-manager": "home-manager",
         "import-tree": "import-tree_2",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nvf": "nvf",
         "stylix": "stylix"
       },
@@ -332,7 +372,7 @@
       "inputs": {
         "flake-parts": "flake-parts_2",
         "neovim-src": "neovim-src",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1789344166,
@@ -366,18 +406,17 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1789264731,
-        "narHash": "sha256-llGJbC0CcU8DfROr6mZjRJgMLQd/SKwfpzxJH/2lHO4=",
+        "lastModified": 1777954456,
+        "narHash": "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "02f5696b0e6097e589076d886b317b83ff0437d7",
+        "rev": "549bd84d6279f9852cae6225e372cc67fb91a4c1",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
       }
     },
     "nixpkgs-lib": {
@@ -412,6 +451,22 @@
       }
     },
     "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1789264731,
+        "narHash": "sha256-llGJbC0CcU8DfROr6mZjRJgMLQd/SKwfpzxJH/2lHO4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "02f5696b0e6097e589076d886b317b83ff0437d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1789344334,
         "narHash": "sha256-it+7kNGnOOHBCEnl4SfZ7QtfGziH3EryzHqwvJpjAfg=",
@@ -478,6 +533,7 @@
     "root": {
       "inputs": {
         "disko": "disko",
+        "engram": "engram",
         "import-tree": "import-tree",
         "mikoshi": "mikoshi",
         "nixpkgs": [

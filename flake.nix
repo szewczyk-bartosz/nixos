@@ -10,11 +10,6 @@
       # url = "path:/home/cheryllamb/mikoshi";
     };
 
-    engram = {
-      url = "github:szewczyk-bartosz/engram";
-      inputs.nixpkgs.follows = "mikoshi/nixpkgs";
-    };
-
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.follows = "mikoshi/nixpkgs";
 
@@ -25,33 +20,11 @@
     nixpkgs,
     nixpkgs-unstable,
     mikoshi,
-    engram,
     import-tree,
     disko,
   }: let
     dots = import-tree ./modules;
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
-    devShells.x86_64-linux.default = pkgs.mkShell {
-      shellHook = ''
-        echo "Dots Dev Shell Loaded"
-        echo "run with: deploy-engram"
-      '';
-      packages = [
-        (pkgs.writeShellScriptBin "deploy-engram" ''
-          set -e
-          nix flake update engram
-          if git diff --quiet flake.lock; then
-            echo "engram already up to date, skipping commit"
-          else
-            git add flake.lock
-            git commit -m "bumped engram"
-          fi
-          nixos-rebuild switch --flake .#t3kl4 --target-host cheryllamb@t3kl4 --ask-sudo-password --sudo
-        '')
-      ];
-    };
-
     nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit nixpkgs-unstable;};
@@ -60,18 +33,6 @@
         mikoshi.modules.nixos.default
         dots
         ./hosts/m1k1
-      ];
-    };
-
-    nixosConfigurations.t3kl4 = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit nixpkgs-unstable;};
-      modules = [
-        engram.nixosModules.default
-        disko.nixosModules.disko
-        mikoshi.modules.nixos.default
-        dots
-        ./hosts/t3kl4
       ];
     };
 
