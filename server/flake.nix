@@ -5,18 +5,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixpkgs.url = "nixpkgs/nixos-26.05";
+
     mikoshi = {
       url = "github:szewczyk-bartosz/mikoshi";
       # url = "path:/home/cheryllamb/mikoshi";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     engram = {
       url = "github:szewczyk-bartosz/engram";
-      inputs.nixpkgs.follows = "mikoshi/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.follows = "mikoshi/nixpkgs";
 
     import-tree.url = "github:denful/import-tree";
   };
