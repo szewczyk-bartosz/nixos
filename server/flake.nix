@@ -42,7 +42,7 @@
       packages = [
         (pkgs.writeShellScriptBin "deploy-engram" ''
           set -e
-          nix flake update engram
+          nix flake update engram engramware
           if git diff --quiet flake.lock; then
             echo "engram already up to date, skipping commit"
           else
