@@ -117,11 +117,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790085486,
-        "narHash": "sha256-ihFTTCjkjf4acxZxQqWpcJ+ri1Ber4PCkinFSw83k4M=",
+        "lastModified": 1790086794,
+        "narHash": "sha256-GxEV/AUpX6nRMMq1rwaVJHq9toph4KJqBWtGV53UzGQ=",
         "owner": "szewczyk-bartosz",
         "repo": "engram",
-        "rev": "f872e87d033047e31a60c34ecc2e6670ae309904",
+        "rev": "f20f35a8b5d482b1c998e83cdacd1538d56d4609",
         "type": "github"
       },
       "original": {
