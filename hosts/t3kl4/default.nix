@@ -14,7 +14,7 @@
 
   # DOTS OPTIONS
   dots = {
-    ssh.allowFrom = ["m1k1" "phone"];
+    ssh.cheryllamb.allowFrom = ["m1k1" "phone"];
     remoteDeployment.enable = true;
     syncthing.enable = true;
     dev = {

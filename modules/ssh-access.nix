@@ -9,26 +9,37 @@
   };
 in {
   options.dots = {
-    ssh.allowFrom = lib.mkOption {
-      type = lib.types.listOf (lib.types.enum (lib.attrNames controllerKeys));
-      default = [];
-      description = "Hosts whose key gets added to cheryllamb's list of authorised keys";
+    ssh.users = lib.mkOption {
+      type = lib.types.attrsOf (lib.types.submodule {
+        options.allowFrom = lib.mkOption {
+          type = lib.types.listOf (lib.types.enum (lib.attrNames controllerKeys));
+          default = [];
+          description = "Hosts whose keys will get added to the parent's list of authorised keys";
+        };
+      });
     };
-    ssh.tailscaleOnly = lib.mkOption {
+    ssh.openTailscale = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "If true, port 22 is only opened on the tailscale0 interface. If false, it's opened on all interfaces normally.";
+      description = "If true, port 22 is only opened on the tailscale0 interface.";
     };
+
+    ssh.openPublic = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "If true, port 22 is opened for ssh connections";
+    };
+
   };
-  config = lib.mkIf (config.dots.ssh.allowFrom != []) {
-    users.users.cheryllamb.openssh.authorizedKeys.keys =
-      lib.map (
-        name: controllerKeys.${name}
-      )
-      config.dots.ssh.allowFrom;
+  config = lib.mkIf (config.dots.ssh.openPublic || config.dots.ssh.openTailscale) {
+    users.users = lib.mapAttrs (_: config: 
+        {
+        openssh.authorizedKeys.keys = lib.map (name: controllerKeys.${name}) config.dots.ssh.allowFrom;
+        }
+    ) config.dots.ssh.users;
 
     services.fail2ban = {
-      enable = !config.dots.ssh.tailscaleOnly;
+      enable = config.dots.ssh.openPublic;
       maxretry = 8;
       bantime = "1h";
       bantime-increment.enable = true;
@@ -36,13 +47,13 @@ in {
 
     services.openssh = {
       enable = true;
-      openFirewall = !config.dots.ssh.tailscaleOnly;
+      openFirewall = config.dots.ssh.openPublic;
       settings = {
         PasswordAuthentication = false;
         PermitRootLogin = "prohibit-password";
       };
     };
-    networking.firewall.interfaces.tailscale0.allowedTCPPorts = lib.mkIf config.dots.ssh.tailscaleOnly [
+    networking.firewall.interfaces.tailscale0.allowedTCPPorts = lib.mkIf config.dots.ssh.openTailscale [
       22
     ];
   };
