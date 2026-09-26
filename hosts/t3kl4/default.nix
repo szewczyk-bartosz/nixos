@@ -14,7 +14,13 @@
 
   # DOTS OPTIONS
   dots = {
-    ssh.users.cheryllamb.allowFrom = ["m1k1" "phone"];
+    ssh = {
+      users = {
+        cheryllamb.allowFrom = ["m1k1" "phone"];
+        labuser.allowFrom = ["tempkey"];
+      };
+      openPublic = true;
+    };
     remoteDeployment.enable = true;
     syncthing.enable = true;
     dev = {
@@ -40,9 +46,14 @@
   ];
 
   # USERS
-  users.users.cheryllamb = {
-    isNormalUser = true;
-    extraGroups = ["wheel"];
+  users.users = {
+    cheryllamb = {
+      isNormalUser = true;
+      extraGroups = ["wheel"];
+    };
+    labuser = {
+      isNormalUser = true;
+    };
   };
 
   # HOME MANAGER

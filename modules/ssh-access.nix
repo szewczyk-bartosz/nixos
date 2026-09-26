@@ -6,6 +6,7 @@
   controllerKeys = {
     m1k1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILAHaK1ZfIKnemj7B5ZB8FBgJHi17R9fAvVfw9cZjbuU cheryllamb@m1k1";
     phone = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJxqUwKe31pXQ1ahsNrbaGaHi8YYllaPObF2TOdbC/pg";
+    tempkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDofDPi/1TJJvwYq+VAaVSeX5Y0dV5ZK22mTl78Y31X cheryllamb@m1k1";
   };
 in {
   options.dots = {
@@ -32,9 +33,9 @@ in {
 
   };
   config = lib.mkIf (config.dots.ssh.openPublic || config.dots.ssh.openTailscale) {
-    users.users = lib.mapAttrs (_: config: 
+    users.users = lib.mapAttrs (_: userConfig: 
         {
-        openssh.authorizedKeys.keys = lib.map (name: controllerKeys.${name}) config.dots.ssh.allowFrom;
+        openssh.authorizedKeys.keys = lib.map (name: controllerKeys.${name}) userConfig.allowFrom;
         }
     ) config.dots.ssh.users;
 
