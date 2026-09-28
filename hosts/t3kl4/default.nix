@@ -71,6 +71,7 @@
   services.engram = {
     enable = true;
     notesDir = "/home/cheryllamb/engram-data/";
+    webRoot = "/var/lib/engram";
     user = "cheryllamb";
   };
 
