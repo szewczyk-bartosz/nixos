@@ -190,11 +190,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782949081,
-        "narHash": "sha256-vp6Y/Grm98ESt6ceOkWiHWyZRDV3J1RID4w+6NWK9yA=",
+        "lastModified": 1788450739,
+        "narHash": "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "17c9d6cdfc60c64f4ee8d306f9bc0b4ccb51481e",
+        "rev": "31729ca8cbdb4fa927b34e5f4353e6a83f39e993",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
     },
     "import-tree": {
       "locked": {
-        "lastModified": 1788275959,
-        "narHash": "sha256-doeyg/EY8joBaZhELfVrSGjAm6pFtp2p0UgQv/Wwgh0=",
+        "lastModified": 1788467110,
+        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
         "owner": "denful",
         "repo": "import-tree",
-        "rev": "e9177dd0d600162a6410ea6019c796cff7a636c3",
+        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
         "type": "github"
       },
       "original": {
@@ -300,11 +300,11 @@
         "stylix": "stylix"
       },
       "locked": {
-        "lastModified": 1790606087,
-        "narHash": "sha256-HLCox9yW//GiCKiWObVjImWK/OOTva/jZQ1kjb6nePI=",
+        "lastModified": 1790615889,
+        "narHash": "sha256-UisC2ghIcvyX/566dBWAZUCdJ7GWrXO+DO/iuLz1cSg=",
         "owner": "szewczyk-bartosz",
         "repo": "mikoshi",
-        "rev": "d95a4aff4783a7a64662479aefa546c125db31dd",
+        "rev": "1135595c083fed77f0eaf4da0e0a477d03dfd4ec",
         "type": "github"
       },
       "original": {
