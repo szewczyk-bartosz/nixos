@@ -6,6 +6,7 @@
   controllerKeys = {
     m1k1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILAHaK1ZfIKnemj7B5ZB8FBgJHi17R9fAvVfw9cZjbuU cheryllamb@m1k1";
     phone = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJxqUwKe31pXQ1ahsNrbaGaHi8YYllaPObF2TOdbC/pg";
+    k1v1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMEGLT9KAzSephpBtwXJM0WQPom3X2yHXhYAIg7OliKQ cheryllamb@k1v1";
     tempkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDofDPi/1TJJvwYq+VAaVSeX5Y0dV5ZK22mTl78Y31X cheryllamb@m1k1";
   };
 in {

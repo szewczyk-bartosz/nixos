@@ -16,7 +16,7 @@
   dots = {
     ssh = {
       users = {
-        cheryllamb.allowFrom = ["m1k1" "phone"];
+        cheryllamb.allowFrom = ["m1k1" "k1v1" "phone"];
         labuser.allowFrom = ["tempkey"];
       };
       openPublic = true;

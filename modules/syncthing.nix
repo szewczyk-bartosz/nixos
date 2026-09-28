@@ -6,7 +6,7 @@
   syncthingDevices = {
     m1k1 = "TDHIEIT-KHXUAZS-ED66URH-T5RZTLL-EXY6G4F-HSISC4S-A3P6XTW-HU3JWQK";
     t3kl4 = "NXG3N4Q-5EBYPZB-EL7H5UX-AFVPGDO-NFCFDFY-FSSXMTV-SEUKT2U-ASLXOQX";
-    # k1v1 = "<K1V1-ID>";
+    k1v1 = "H2SJHQ3-GI24UIH-SZIQ2U6-AVL4TTQ-FCZQD42-VZA5UUJ-FIRPWMB-BSSRAQT";
   };
   peers = lib.filterAttrs (name: _: name != config.networking.hostName) syncthingDevices;
 in {
