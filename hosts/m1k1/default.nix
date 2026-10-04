@@ -36,7 +36,10 @@ in {
       users = ["cheryllamb"];
       keyboardLayouts = ["gb" "pl" "ua"];
     };
-    wm.plasma.enable = true;
+    theme.polarity = "dark";
+    wm.sway.enable = true;
+    wm.sway.wallpaper = ../../wallpapers/nixos.png;
+    # wm.plasma.enable = true;
     gaming.enable = true;
     bmd.enable = true;
     obs-amd.enable = true;
