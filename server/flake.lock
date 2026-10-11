@@ -118,11 +118,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790774406,
-        "narHash": "sha256-/XsxSqi5h8Z7d02AHCm7lAu2SRYAD51+DKqDGI6Ap08=",
+        "lastModified": 1791740205,
+        "narHash": "sha256-r981dDF97kjGklYPyULGmt481z0dbUljrqJzhj43rV0=",
         "owner": "szewczyk-bartosz",
         "repo": "engram",
-        "rev": "960a5a6e4093c4c9e7e7ee741be421605403316d",
+        "rev": "a314dccfa358c7f8a0a565828aa8e19c56f6752d",
         "type": "github"
       },
       "original": {
@@ -139,11 +139,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790773624,
-        "narHash": "sha256-Ff1yl515paxXqOeOcWfUomFoptt2+S3AS//9NY/Y5H8=",
+        "lastModified": 1791740158,
+        "narHash": "sha256-oapaBYi7Zaqxb8zsJJwWSZaY528UtzVwDuRePS+sQi0=",
         "owner": "szewczyk-bartosz",
         "repo": "engramware",
-        "rev": "c1318aa5ae1ef6e390134469788203e823fd4166",
+        "rev": "868feaa4ce0f511ab2e09f467138548e96ba255e",
         "type": "github"
       },
       "original": {
