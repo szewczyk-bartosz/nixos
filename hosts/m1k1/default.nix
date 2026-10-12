@@ -52,6 +52,7 @@ in {
     prismlauncher
     poe-trade
     wlrctl
+    er-patcher
   ];
 
   # USERS
