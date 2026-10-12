@@ -1,38 +1,55 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  nixpkgs-unstable,
+  ...
+}: {
   imports = [
     ./disk.nix
     ./hardware.nix
-    ../../modules/shared-system.nix
-    ../../modules/defaultApps.nix
   ];
+  system.stateVersion = "25.11";
 
+  # BOOT
   boot.loader.grub.enable = true;
-  networking.hostName = "virt";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  time.timeZone = "Europe/London";
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 2048;
-    }
-  ];
-  users.users.cheryllamb = {
-    isNormalUser = true;
-    extraGroups = ["wheel"];
-    packages = with pkgs; [
-      git
-    ];
+  # DOTS OPTIONS
+  dots = {
   };
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.cheryllamb = {
-      home.stateVersion = "26.05";
-      imports = [../../modules/shared-home.nix];
+  # MIKOSHI OPTIONS
+  mikoshi = {
+    wm.sway.enable = true;
+    meta = {
+      users = ["anon"];
+      keyboardLayouts = ["gb"];
     };
   };
 
-  system.stateVersion = "26.05";
+  # SYSTEM PACKAGES
+  environment.systemPackages = with pkgs; [
+    git
+    python313
+  ];
+
+  # USERS
+  users.users = {
+    anon = {
+      isNormalUser = true;
+      extraGroups = ["wheel"];
+    };
+  };
+
+  # HOME MANAGER
+  home-manager = {
+    users.anon = {
+      home.stateVersion = "26.05";
+    };
+  };
+
+  # NETWORKING
+  networking.hostName = "virt";
+
+  # OTHER
+
+  # OVERLAYS
 }

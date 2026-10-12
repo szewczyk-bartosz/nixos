@@ -6,8 +6,8 @@
     };
 
     mikoshi = {
-      url = "github:szewczyk-bartosz/mikoshi";
-      # url = "path:/home/cheryllamb/mikoshi";
+      # url = "github:szewczyk-bartosz/mikoshi";
+      url = "path:/home/cheryllamb/mikoshi";
     };
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
