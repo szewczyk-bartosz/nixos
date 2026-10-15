@@ -16,7 +16,7 @@
 
   # DOTS OPTIONS
   dots = {
-    ssh.users.cheryllamb.allowFrom = ["m1k1"];
+    ssh.users.cheryllamb.allowFrom = ["m1k1" "phone"];
     remoteDeployment.enable = true;
     syncthing.enable = true;
     apps.default.enable = true;
@@ -38,12 +38,13 @@
       users = ["cheryllamb"];
     };
 
-    stylix = {
-      enable = true;
-      base16Scheme = "catppuccin-mocha";
-    };
+    # stylix = {
+    #   enable = true;
+    #   base16Scheme = "catppuccin-mocha";
+    # };
 
-    wm.hyprland = {
+    wm.sway = {
+      capsAsCtrl = true;
       enable = true;
       wallpaper = ../../wallpapers/nixos.png;
     };
