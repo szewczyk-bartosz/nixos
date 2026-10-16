@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/nvme1n1";
+        device = "/dev/disk/by-id/nvme-WD_BLACK_SN770_2TB_2451CT400968";
         content = {
           type = "gpt";
           partitions = {
@@ -41,7 +41,7 @@
       };
 
       external = {
-        type = "disk";
+        type = "/dev/disk/by-id/ata-Samsung_SSD_870_QVO_1TB_S5RRNF0W414762W";
         device = "/dev/sda";
         content = {
           type = "gpt";
