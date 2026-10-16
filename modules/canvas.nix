@@ -3,15 +3,25 @@
   lib,
   ...
 }: let
-  cfg = config.dots.canvas;
+  algorithms = "39796";
+  dataScience = "39874";
+  databases = "39802";
+  compilers = "38069";
+
+  active = [algorithms dataScience databases compilers];
+  images = {
+    ${algorithms} = "https://canvas.sussex.ac.uk/images/thumbnails/5147631/WcMTB8al50KqykfEOVjqZ6DFSVbUd7puZWpv0R1S";
+    ${compilers} = "https://t2informatik.de/en/wp-content/uploads/sites/2/2023/03/compiler.png";
+  };
+
   card = id: ''.ic-DashboardCard:has(a[href="/courses/${id}"])'';
 
-  dimRules = lib.optionalString (cfg.active != []) ''
-    .ic-DashboardCard:not(:hover) { opacity: ${toString cfg.dimOpacity} !important; }
+  dimRules = ''
+    .ic-DashboardCard:not(:hover) { opacity: 0.25 !important; }
     ${lib.concatMapStrings (id: ''
         ${card id} { opacity: 1 !important; }
       '')
-      cfg.active}
+      active}
   '';
 
   imageRules = lib.concatStrings (lib.mapAttrsToList (id: url: ''
@@ -21,43 +31,15 @@
         background-position: center !important;
       }
     '')
-    cfg.images);
+    images);
 in {
-  options.dots.canvas = {
-    enable = lib.mkEnableOption "Canvas dashboard tweaks via Firefox userContent.css";
+  options.dots.canvasPatch.enable = lib.mkEnableOption "Canvas dashboard tweaks via Firefox userContent.css";
 
-    profile = lib.mkOption {
-      type = lib.types.str;
-      default = "default";
-      description = "Name of the home-manager Firefox profile to apply the CSS to.";
-    };
-
-    active = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [];
-      example = ["39796"];
-      description = "Course IDs shown at full opacity. Every other card is dimmed. Empty means nothing is dimmed.";
-    };
-
-    dimOpacity = lib.mkOption {
-      type = lib.types.float;
-      default = 0.1;
-      description = "Opacity of non-active cards.";
-    };
-
-    images = lib.mkOption {
-      type = lib.types.attrsOf lib.types.str;
-      default = {};
-      example = {"39796" = "https://canvas.sussex.ac.uk/images/thumbnails/...";};
-      description = "Course ID to banner image URL.";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.dots.canvasPatch.enable {
     home-manager.users = lib.genAttrs config.mikoshi.meta.users (user: {
       programs.firefox = {
         enable = true;
-        profiles.${cfg.profile} = {
+        profiles.default = {
           settings."toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           userContent = ''
             @-moz-document domain("canvas.sussex.ac.uk") {

@@ -3,12 +3,7 @@
   lib,
   nixpkgs-unstable,
   ...
-}: let
-  algorithms = "39796";
-  dataScience = "39874";
-  databases = "39802";
-  compilers = "38069";
-in {
+}: {
   system.stateVersion = "25.11";
   imports = [
     ./hardware.nix
@@ -24,14 +19,7 @@ in {
     ssh.users.cheryllamb.allowFrom = ["m1k1" "phone"];
     remoteDeployment.enable = true;
     syncthing.enable = true;
-    canvas = {
-      enable = true;
-      active = [algorithms dataScience databases compilers];
-      images = {
-        ${algorithms} = "https://canvas.sussex.ac.uk/images/thumbnails/5147631/WcMTB8al50KqykfEOVjqZ6DFSVbUd7puZWpv0R1S";
-        ${compilers} = "https://t2informatik.de/en/wp-content/uploads/sites/2/2023/03/compiler.png";
-      };
-    };
+    canvasPatch.enable = true;
     apps.default.enable = true;
     dev = {
       tools.default.enable = true;

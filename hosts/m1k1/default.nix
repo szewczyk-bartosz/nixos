@@ -22,6 +22,7 @@ in {
   # DOTS OPTIONS
   dots = {
     syncthing.enable = true;
+    canvasPatch.enable = true;
     apps.default.enable = true;
     dev = {
       tools.default.enable = true;
