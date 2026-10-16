@@ -41,8 +41,8 @@
       };
 
       external = {
-        type = "/dev/disk/by-id/ata-Samsung_SSD_870_QVO_1TB_S5RRNF0W414762W";
-        device = "/dev/sda";
+        type = "disk";
+        device = "/dev/disk/by-id/ata-Samsung_SSD_870_QVO_1TB_S5RRNF0W414762W";
         content = {
           type = "gpt";
           partitions = {
@@ -51,7 +51,7 @@
               content = {
                 type = "filesystem";
                 format = "ext4";
-                mountpoint = "/storage";
+                mountpoint = "/home/cheryllamb/ssd";
                 extraArgs = ["-L" "BIG_STORAGE"];
               };
             };
@@ -61,6 +61,6 @@
     };
   };
   systemd.tmpfiles.rules = [
-    "d /storage 0755 cheryllamb users - -"
+    "d /home/cheryllamb/ssd 0755 cheryllamb users - -"
   ];
 }
