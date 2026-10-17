@@ -12,6 +12,7 @@
         enable = true;
         shellAliases = {
           "cdd" = "cd ~/Desktop/";
+          "cdp" = "cd ~/projects/current/";
         };
       };
     });
