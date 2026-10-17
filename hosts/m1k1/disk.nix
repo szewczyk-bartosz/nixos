@@ -52,7 +52,7 @@
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/home/cheryllamb/ssd";
-                extraArgs = ["-L" "BIG_STORAGE"];
+                extraArgs = ["-L" "SSD_STORAGE"];
               };
             };
           };

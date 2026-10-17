@@ -52,6 +52,7 @@ in {
     razergenie
     prismlauncher
     poe-trade
+    gocryptfs
     wlrctl
     er-patcher
   ];
