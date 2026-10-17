@@ -13,7 +13,7 @@
       (final: prev: {
         claude-code =
           (import nixpkgs-unstable {
-            system = prev.system;
+            system = prev.stdenvd.hostPlatform.system;
             config.allowUnfree = true;
           }).claude-code;
       })
