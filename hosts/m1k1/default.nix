@@ -3,10 +3,17 @@
   nixpkgs-unstable,
   ...
 }: let
+  apt = pkgs.awakened-poe-trade.override { electron = pkgs.electron_42; };
+
   poe-trade = pkgs.writeShellScriptBin "poe-trade" ''
     exec env XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 \
-      ${pkgs.awakened-poe-trade}/bin/awakened-poe-trade \
-      --ozone-platform=x11 --no-overlay --listen=127.0.0.1:4502 "$@"
+      ${apt}/bin/awakened-poe-trade --ozone-platform=x11 --listen=127.0.0.1:4502 "$@"
+  '';
+
+  poe-trade-browser = pkgs.writeShellScriptBin "poe-trade-browser" ''
+    exec env XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 \
+      ${apt}/bin/awakened-poe-trade --ozone-platform=x11 \
+      --no-overlay --listen=127.0.0.1:4502 "$@"
   '';
 in {
   system.stateVersion = "26.05";
@@ -52,6 +59,7 @@ in {
     razergenie
     prismlauncher
     poe-trade
+    poe-trade-browser
     gocryptfs
     wlrctl
     er-patcher
