@@ -4,9 +4,9 @@
   ...
 }: let
   poe-trade = pkgs.writeShellScriptBin "poe-trade" ''
-    echo "Running POE Trade Wrapper Version 0.6 (clean)"
     exec env XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 \
-      ${pkgs.awakened-poe-trade}/bin/awakened-poe-trade --ozone-platform=x11 "$@"
+      ${pkgs.awakened-poe-trade}/bin/awakened-poe-trade \
+      --ozone-platform=x11 --no-overlay --listen=127.0.0.1:4502 "$@"
   '';
 in {
   system.stateVersion = "26.05";
