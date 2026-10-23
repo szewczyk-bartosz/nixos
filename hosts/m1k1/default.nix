@@ -40,6 +40,7 @@ in {
 
   # MIKOSHI OPTIONS
   mikoshi = {
+    lock.enable = false;
     meta = {
       users = ["cheryllamb"];
       keyboardLayouts = ["gb" "pl" "ua"];
@@ -61,6 +62,7 @@ in {
     poe-trade
     poe-trade-browser
     gocryptfs
+    lutris
     wlrctl
     er-patcher
   ];
