@@ -38,6 +38,7 @@
       ];
       users = ["cheryllamb"];
     };
+    bluetooth.enable = true;
 
     # stylix = {
     #   enable = true;
