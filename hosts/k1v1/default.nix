@@ -44,6 +44,7 @@
     #   base16Scheme = "catppuccin-mocha";
     # };
 
+    bmd.enable = true;
     wm.sway = {
       capsAsCtrl = true;
       enable = true;
@@ -78,6 +79,7 @@
   networking.hostName = "k1v1";
 
   # OTHER
+  services.fwupd.enable = true;
 
   # OVERLAYS
 }
