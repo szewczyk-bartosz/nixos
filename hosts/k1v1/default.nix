@@ -55,7 +55,7 @@
   };
 
   # SYSTEM PACKAGES
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [ dbeaver-bin ];
 
   # USERS
   users.users.cheryllamb = {
