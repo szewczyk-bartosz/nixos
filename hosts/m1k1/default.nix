@@ -57,6 +57,7 @@ in {
 
   # SYSTEM PACKAGES
   environment.systemPackages = with pkgs; [
+    sweethome3d.application
     openrazer-daemon
     razergenie
     prismlauncher
