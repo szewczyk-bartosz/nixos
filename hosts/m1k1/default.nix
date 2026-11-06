@@ -67,6 +67,7 @@ in {
     lutris
     wlrctl
     er-patcher
+    gimp
   ];
 
   # USERS
