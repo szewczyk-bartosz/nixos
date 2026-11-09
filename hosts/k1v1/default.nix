@@ -55,7 +55,7 @@
   };
 
   # SYSTEM PACKAGES
-  environment.systemPackages = with pkgs; [ dbeaver-bin ];
+  environment.systemPackages = with pkgs; [dbeaver-bin];
 
   # USERS
   users.users.cheryllamb = {
@@ -81,6 +81,5 @@
 
   # OTHER
   services.fwupd.enable = true;
-
   # OVERLAYS
 }

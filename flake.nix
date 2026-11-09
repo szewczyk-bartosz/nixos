@@ -6,8 +6,8 @@
     };
 
     mikoshi = {
-      # url = "github:szewczyk-bartosz/mikoshi";
-      url = "path:/home/cheryllamb/projects/current/mikoshi";
+      url = "github:szewczyk-bartosz/mikoshi";
+      # url = "path:/home/cheryllamb/projects/current/mikoshi";
     };
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -25,6 +25,7 @@
   }: let
     dots = import-tree ./modules;
   in {
+
     nixosConfigurations.m1k1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit nixpkgs-unstable;};

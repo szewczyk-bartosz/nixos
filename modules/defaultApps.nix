@@ -11,7 +11,7 @@
     nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
       chromium
-      brave
+      librewolf
       zip
       unzip
       firefox

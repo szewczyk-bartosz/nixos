@@ -90,6 +90,9 @@ in {
   # OTHER
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-42.11.18"
+  ];
 
   # OVERLAYS
 }
