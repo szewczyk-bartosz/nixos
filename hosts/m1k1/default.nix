@@ -1,9 +1,19 @@
 {
   pkgs,
   nixpkgs-unstable,
+  lib,
   ...
 }: let
-  apt = pkgs.awakened-poe-trade.override { electron = pkgs.electron_42; };
+  # apt = pkgs.awakened-poe-trade.override { electron = pkgs.electron_42; };
+  apt = (pkgs.callPackage "${nixpkgs-unstable}/pkgs/by-name/aw/awakened-poe-trade/package.nix" {
+    electron = pkgs.electron_42;
+  }).overrideAttrs (final: prev: {
+    version = "3.29.108";
+    src = pkgs.fetchurl {
+      url = "https://github.com/SnosMe/awakened-poe-trade/releases/download/v${final.version}/Awakened-PoE-Trade-${final.version}.AppImage";
+      hash = "sha256-DIksV61mC0E2ZPztWK+WnMqR9KXwLMWQpc7hajaymyE=";
+    };
+  });
 
   poe-trade = pkgs.writeShellScriptBin "poe-trade" ''
     exec env XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 \
