@@ -6,7 +6,7 @@
 }: let
   # apt = pkgs.awakened-poe-trade.override { electron = pkgs.electron_42; };
   apt = (pkgs.callPackage "${nixpkgs-unstable}/pkgs/by-name/aw/awakened-poe-trade/package.nix" {
-    electron = pkgs.electron_42;
+    electron = pkgs.electron_43;
   }).overrideAttrs (final: prev: {
     version = "3.29.108";
     src = pkgs.fetchurl {
@@ -100,9 +100,9 @@ in {
   # OTHER
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-42.11.18"
-  ];
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "electron-42.11.18"
+  # ];
 
   # OVERLAYS
 }
